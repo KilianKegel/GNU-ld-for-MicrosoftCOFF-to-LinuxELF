@@ -1,0 +1,25 @@
+
+program.elf:     file format elf64-x86-64
+
+
+Disassembly of section .text$mn:
+
+0000000000401000 <begin>:
+  401000:	48 83 ec 28          	sub    $0x28,%rsp
+  401004:	e8 0f 00 00 00       	callq  401018 <getaddr1>
+  401009:	e8 12 00 00 00       	callq  401020 <getaddr2>
+  40100e:	48 83 c4 28          	add    $0x28,%rsp
+  401012:	e9 11 00 00 00       	jmpq   401028 <getaddr3>
+  401017:	90                   	nop
+
+0000000000401018 <getaddr1>:
+  401018:	48 8d 05 f4 1f 00 00 	lea    0x1ff4(%rip),%rax        # 403013 <getaddr3+0x1feb>
+  40101f:	c3                   	retq   
+
+0000000000401020 <getaddr2>:
+  401020:	48 8d 05 ed 1f 00 00 	lea    0x1fed(%rip),%rax        # 403014 <__bss_start>
+  401027:	c3                   	retq   
+
+0000000000401028 <getaddr3>:
+  401028:	48 8d 05 e5 1f 00 00 	lea    0x1fe5(%rip),%rax        # 403014 <__bss_start>
+  40102f:	c3                   	retq   
