@@ -1,21 +1,14 @@
 
-Allocating common symbols
-Common symbol       size              file
-
-var                 0x1               var.obj
-
 Discarded input sections
 
  .drectve       0x0000000000000000       0x2f main.obj
- .chks64        0x0000000000000000       0x40 main.obj
+ .chks64        0x0000000000000000       0x38 main.obj
  .drectve       0x0000000000000000       0x2f mod1MSFT.obj
- .chks64        0x0000000000000000       0x30 mod1MSFT.obj
+ .chks64        0x0000000000000000       0x38 mod1MSFT.obj
  .drectve       0x0000000000000000       0x2f mod2MSFT.obj
- .chks64        0x0000000000000000       0x30 mod2MSFT.obj
+ .chks64        0x0000000000000000       0x28 mod2MSFT.obj
  .drectve       0x0000000000000000       0x2f mod3MSFT.obj
- .chks64        0x0000000000000000       0x30 mod3MSFT.obj
- .drectve       0x0000000000000000       0x2f var.obj
- .chks64        0x0000000000000000       0x20 var.obj
+ .chks64        0x0000000000000000       0x28 mod3MSFT.obj
 
 Memory Configuration
 
@@ -28,7 +21,6 @@ LOAD main.obj
 LOAD mod1MSFT.obj
 LOAD mod2MSFT.obj
 LOAD mod3MSFT.obj
-LOAD var.obj
                 [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
                 0x0000000000400120                . = (SEGMENT_START ("text-segment", 0x400000) + SIZEOF_HEADERS)
 
@@ -105,16 +97,18 @@ LOAD var.obj
  *(.text .stub .text.* .gnu.linkonce.t.*)
  *(.gnu.warning)
 
-.text$mn        0x0000000000401000       0x30
- .text$mn       0x0000000000401000       0x17 main.obj
+.text$mn        0x0000000000401000       0x48
+ .text$mn       0x0000000000401000       0x18 main.obj
                 0x0000000000401000                begin
- *fill*         0x0000000000401017        0x1 
- .text$mn       0x0000000000401018        0x8 mod1MSFT.obj
-                0x0000000000401018                getaddr1
- .text$mn       0x0000000000401020        0x8 mod2MSFT.obj
-                0x0000000000401020                getaddr2
- .text$mn       0x0000000000401028        0x8 mod3MSFT.obj
-                0x0000000000401028                getaddr3
+ *fill*         0x0000000000401018        0x8 
+ .text$mn       0x0000000000401020        0x8 mod1MSFT.obj
+                0x0000000000401020                getaddr1
+ *fill*         0x0000000000401028        0x8 
+ .text$mn       0x0000000000401030        0x8 mod2MSFT.obj
+                0x0000000000401030                getaddr2
+ *fill*         0x0000000000401038        0x8 
+ .text$mn       0x0000000000401040        0x8 mod3MSFT.obj
+                0x0000000000401040                getaddr3
 
 .fini
  *(SORT_NONE(.fini))
@@ -238,9 +232,9 @@ LOAD var.obj
 .bss            0x0000000000403014        0x4
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- *(COMMON)
- COMMON         0x0000000000403014        0x1 var.obj
+ .bss           0x0000000000403014        0x1 mod1MSFT.obj
                 0x0000000000403014                var
+ *(COMMON)
                 0x0000000000403018                . = ALIGN ((. != 0x0)?0x8:0x1)
  *fill*         0x0000000000403015        0x3 
 
@@ -360,18 +354,13 @@ OUTPUT(program.elf elf64-x86-64)
 
 .unqRlcs        0x0000000000000000        0x0
  .unqRlcs       0x0000000000000000        0x0 main.obj
- .unqRlcs       0x0000000000000000        0x0 main.obj
  .unqRlcs       0x0000000000000000        0x0 mod1MSFT.obj
  .unqRlcs       0x0000000000000000        0x0 mod1MSFT.obj
  .unqRlcs       0x0000000000000000        0x0 mod2MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 mod2MSFT.obj
  .unqRlcs       0x0000000000000000        0x0 mod3MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 mod3MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 var.obj
 
-.debug$S        0x0000000000000000      0x214
- .debug$S       0x0000000000000000       0x68 main.obj
- .debug$S       0x0000000000000068       0x6c mod1MSFT.obj
- .debug$S       0x00000000000000d4       0x6c mod2MSFT.obj
- .debug$S       0x0000000000000140       0x6c mod3MSFT.obj
- .debug$S       0x00000000000001ac       0x68 var.obj
+.debug$S        0x0000000000000000      0x23c
+ .debug$S       0x0000000000000000       0x8c main.obj
+ .debug$S       0x000000000000008c       0x90 mod1MSFT.obj
+ .debug$S       0x000000000000011c       0x90 mod2MSFT.obj
+ .debug$S       0x00000000000001ac       0x90 mod3MSFT.obj

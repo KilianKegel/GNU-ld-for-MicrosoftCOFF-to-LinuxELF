@@ -8,10 +8,10 @@ File Type: COFF OBJECT
 
 FILE HEADER VALUES
             8664 machine (x64)
-               6 number of sections
-        5F416138 time date stamp Sat Aug 22 20:17:28 2020
-             1E1 file pointer to symbol table
-              10 number of symbols
+               5 number of sections
+        5F4251A4 time date stamp Sun Aug 23 13:23:16 2020
+             1D5 file pointer to symbol table
+               E number of symbols
                0 size of optional header
                0 characteristics
 
@@ -20,7 +20,7 @@ SECTION HEADER #1
        0 physical address
        0 virtual address
       2F size of raw data
-     104 file pointer to raw data (00000104 to 00000132)
+      DC file pointer to raw data (000000DC to 0000010A)
        0 file pointer to relocation table
        0 file pointer to line numbers
        0 number of relocations
@@ -45,7 +45,7 @@ SECTION HEADER #2
        0 physical address
        0 virtual address
        0 size of raw data
-     133 file pointer to raw data
+     10B file pointer to raw data
        0 file pointer to relocation table
        0 file pointer to line numbers
        0 number of relocations
@@ -58,8 +58,8 @@ SECTION HEADER #3
 .debug$S name
        0 physical address
        0 virtual address
-      6C size of raw data
-     133 file pointer to raw data (00000133 to 0000019E)
+      90 size of raw data
+     10B file pointer to raw data (0000010B to 0000019A)
        0 file pointer to relocation table
        0 file pointer to line numbers
        0 number of relocations
@@ -71,59 +71,46 @@ SECTION HEADER #3
          Read Only
 
 RAW DATA #3
-  00000000: 04 00 00 00 F1 00 00 00 5F 00 00 00 21 00 01 11  ....ñ..._...!...
-  00000010: 00 00 00 00 41 3A 5C 6C 64 42 75 67 44 65 6D 6F  ....A:\ldBugDemo
-  00000020: 32 5C 6D 6F 64 33 4D 53 46 54 2E 6F 62 6A 00 3A  2\mod3MSFT.obj.:
-  00000030: 00 3C 11 00 62 00 00 D0 00 13 00 1A 00 86 70 00  .<..b..Ð......p.
-  00000040: 00 13 00 1A 00 86 70 00 00 4D 69 63 72 6F 73 6F  ......p..Microso
-  00000050: 66 74 20 28 52 29 20 4F 70 74 69 6D 69 7A 69 6E  ft (R) Optimizin
-  00000060: 67 20 43 6F 6D 70 69 6C 65 72 00 00              g Compiler..
+  00000000: 04 00 00 00 F1 00 00 00 84 00 00 00 46 00 01 11  ....ñ.......F...
+  00000010: 00 00 00 00 41 3A 5C 47 4E 55 2D 6C 64 2D 66 6F  ....A:\GNU-ld-fo
+  00000020: 72 2D 4D 69 63 72 6F 73 6F 66 74 43 4F 46 46 2D  r-MicrosoftCOFF-
+  00000030: 74 6F 2D 4C 69 6E 75 78 45 4C 46 5C 6C 64 42 75  to-LinuxELF\ldBu
+  00000040: 67 44 65 6D 6F 32 5C 6D 6F 64 33 4D 53 46 54 2E  gDemo2\mod3MSFT.
+  00000050: 6F 62 6A 00 3A 00 3C 11 00 62 00 00 D0 00 13 00  obj.:.<..b..Ð...
+  00000060: 1A 00 86 70 00 00 13 00 1A 00 86 70 00 00 4D 69  ...p.......p..Mi
+  00000070: 63 72 6F 73 6F 66 74 20 28 52 29 20 4F 70 74 69  crosoft (R) Opti
+  00000080: 6D 69 7A 69 6E 67 20 43 6F 6D 70 69 6C 65 72 00  mizing Compiler.
 
 SECTION HEADER #4
-.unqRlcs name
-       0 physical address
-       0 virtual address
-       0 size of raw data
-     19F file pointer to raw data
-       0 file pointer to relocation table
-       0 file pointer to line numbers
-       0 number of relocations
-       0 number of line numbers
-  300200 flags
-         Info
-         4 byte align
-
-SECTION HEADER #5
 .text$mn name
        0 physical address
        0 virtual address
        8 size of raw data
-     19F file pointer to raw data (0000019F to 000001A6)
-     1A7 file pointer to relocation table
+     19B file pointer to raw data (0000019B to 000001A2)
+     1A3 file pointer to relocation table
        0 file pointer to line numbers
        1 number of relocations
        0 number of line numbers
-60301020 flags
+60500020 flags
          Code
-         COMDAT; sym= getaddr3
-         4 byte align
+         16 byte align
          Execute Read
 
-RAW DATA #5
+RAW DATA #4
   00000000: 48 8D 05 00 00 00 00 C3                          H......Ã
 
-RELOCATIONS #5
+RELOCATIONS #4
                                                 Symbol    Symbol
  Offset    Type              Applied To         Index     Name
  --------  ----------------  -----------------  --------  ------
- 00000003  REL32                      00000000         D  var
+ 00000003  REL32                      00000000         B  var
 
-SECTION HEADER #6
+SECTION HEADER #5
  .chks64 name
        0 physical address
        0 virtual address
-      30 size of raw data
-     1B1 file pointer to raw data (000001B1 to 000001E0)
+      28 size of raw data
+     1AD file pointer to raw data (000001AD to 000001D4)
        0 file pointer to relocation table
        0 file pointer to line numbers
        0 number of relocations
@@ -133,10 +120,10 @@ SECTION HEADER #6
          Remove
          (no align specified)
 
-RAW DATA #6
+RAW DATA #5
   00000000: 23 07 66 15 27 1A BF 1A E3 B0 C4 42 98 FC 1C 14  #.f.'.¿.ã°ÄB.ü..
-  00000010: 59 0A FF CF 8D 1D FF F2 E3 B0 C4 42 98 FC 1C 14  Y.ÿÏ..ÿòã°ÄB.ü..
-  00000020: 42 BF 2F E8 99 42 33 D2 00 00 00 00 00 00 00 00  B¿/è.B3Ò........
+  00000010: DD A4 8C 1A 85 81 D6 8A 42 BF 2F E8 99 42 33 D2  Ý¤....Ö.B¿/è.B3Ò
+  00000020: 00 00 00 00 00 00 00 00                          ........
 
 COFF SYMBOL TABLE
 000 01047086 ABS    notype       Static       | @comp.id
@@ -146,22 +133,20 @@ COFF SYMBOL TABLE
 004 00000000 SECT2  notype       Static       | .unqRlcs
     Section length    0, #relocs    0, #linenums    0, checksum        0
 006 00000000 SECT3  notype       Static       | .debug$S
-    Section length   6C, #relocs    0, #linenums    0, checksum        0
-008 00000000 SECT4  notype       Static       | .unqRlcs
-    Section length    0, #relocs    0, #linenums    0, checksum        0
-00A 00000000 SECT5  notype       Static       | .text$mn
-    Section length    8, #relocs    1, #linenums    0, checksum 411950D3, selection    1 (pick no duplicates)
-00C 00000000 SECT5  notype ()    External     | getaddr3
-00D 00000000 UNDEF  notype       External     | var
-00E 00000000 SECT6  notype       Static       | .chks64
-    Section length   30, #relocs    0, #linenums    0, checksum        0
+    Section length   90, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT4  notype       Static       | .text$mn
+    Section length    8, #relocs    1, #linenums    0, checksum 411950D3
+00A 00000000 SECT4  notype ()    External     | getaddr3
+00B 00000000 UNDEF  notype       External     | var
+00C 00000000 SECT5  notype       Static       | .chks64
+    Section length   28, #relocs    0, #linenums    0, checksum        0
 
 String Table Size = 0x0 bytes
 
   Summary
 
-          30 .chks64
-          6C .debug$S
+          28 .chks64
+          90 .debug$S
           2F .drectve
            8 .text$mn
            0 .unqRlcs
