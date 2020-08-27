@@ -97,7 +97,7 @@ declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 an
     }
 ```
 
-3. `getaddr2.c` for ldBugDemo0, ldBugDemo1 and ldBugDemo2 always the same
+3. [`getaddr2.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr2.c) for ldBugDemo0, ldBugDemo1 and ldBugDemo2 always the same
 
 ```c
     //getaddr2.c
@@ -108,7 +108,7 @@ declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 an
         return &var;
     }
 ```
-4. `var.c` for ldBugDemo2 only
+4. [`var.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo2/var.c) for ldBugDemo2 only
 
 ```c
     //var.c
@@ -124,7 +124,7 @@ and it disappears w/o optimization, Microsoft C compiler switch `/Od`.
 The structure `Struct[0]` is initialized wrongly by optimized code in `opti_O1.c`
 and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
 
-1. `main.c`
+1. [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/main.c)
 
 ```c
     //main.c
@@ -140,7 +140,7 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
         opti_O1();
     }
 ```
-2. `opti_O1.c`
+2. [`opti_O1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_O1.c)
 
 ```c
     //opti_O1.c
@@ -159,7 +159,7 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
         return -1;
     }
 ```
-3. `opti_Od.c`
+3. [`opti_Od.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_Od.c)
 
 ```c
     //opti_O1.c
@@ -179,7 +179,7 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
     }
 ```
 
-3. `struct.c`
+3. [`struct.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/struct.c)
 
 ```c
         //struct.c
@@ -188,7 +188,7 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
         SAMPLESTRUCT Struct[2] = { 1 /* force to .DATA, prevent .BSS placement*/};
 ```
 
-4. `struct.4`
+4. [`struct.h`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/struct.h)
 
 ```c
     //struct.h
@@ -201,8 +201,8 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
     }SAMPLESTRUCT;
 ```
 
-To ease demonstration there are extra comments added to the disassembly of the .ELF file
-below:
+To ease demonstration there are extra comments added to the [disassembly](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/program.elf.dis)
+ of the .ELF file below:
 
 ```as
 
