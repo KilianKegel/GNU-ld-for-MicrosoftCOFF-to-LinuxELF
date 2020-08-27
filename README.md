@@ -53,7 +53,7 @@ in `var.c` also `getaddr1()` gets the right address 0f 0x403014.
 
 ![file bssbugMAP.png not found](bssbugMAP.png)
 
-**Checking the .MAP file makes me believe, that the 8-digit number describes the size of the
+**Checking the .DMP file makes me believe, that the 8-digit number describes the size of the
 variable, but is accidentally subtracted from the real address.**
 
 ![file bssbugDMP.png not found](bssbugDMP.png)
@@ -201,7 +201,8 @@ and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
     }SAMPLESTRUCT;
 ```
 
-To ease demonstration there are extra comments added to the [disassembly](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/program.elf.dis)
+To ease demonstration there are extra comments added to the original 
+[disassembly](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/program.elf.dis)
  of the .ELF file below:
 
 ```as
@@ -272,3 +273,10 @@ Disassembly of section .text$mn:
   4010ca:   b8 ff ff ff ff          mov    $0xffffffff,%eax
   4010cf:   c3                      retq   
 ```
+
+[Comparing](optimizationDMP.html) the .OBJ modules of [`opti_O1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_O1.c)
+and [`opti_Od.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_Od.c)
+makes me believe, that teher is something wrong in the RELOCATION section regarding REL32, REL32_1 and REL32_4. Maybe that
+relocation types are not yet implemented.
+
+![file optimizationDMP.png not found](optimizationDMP.png)
