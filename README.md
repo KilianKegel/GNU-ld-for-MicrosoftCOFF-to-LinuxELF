@@ -23,7 +23,7 @@ During my comprehensive exploration it was found that
 
 * Windows 10 64
 * VS2019 
-* Windows Subystem Linux (WSL2) running a Ubuntu 20.04 imagey
+* Windows Subystem Linux (WSL2) running a Ubuntu 20.04 image
 
 The build platform was installed following that recipe:
 https://github.com/KilianKegel/HowTo-setup-an-UEFI-Development-PC#howto-setup-an-uefi-development-pc
