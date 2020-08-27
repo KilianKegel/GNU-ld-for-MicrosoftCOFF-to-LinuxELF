@@ -32,6 +32,8 @@ But only step (1), (2) and (15) are truly required.
 ### Build Target
 Build target is .ELF x86_64 only.
 
+To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.bat` in each folder.
+
 # .BSS bug
 The .BSS bug is, that non-initialized global variables
 were accessed through a wrong address, when linked with **ld** to an .ELF image.
