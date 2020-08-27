@@ -1,0 +1,144 @@
+Microsoft (R) COFF/PE Dumper Version 14.26.28806.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file opti_Od.obj
+
+File Type: COFF OBJECT
+
+FILE HEADER VALUES
+            8664 machine (x64)
+               4 number of sections
+        5F43FAC3 time date stamp Mon Aug 24 19:37:07 2020
+             22F file pointer to symbol table
+               C number of symbols
+               0 size of optional header
+               0 characteristics
+
+SECTION HEADER #1
+.drectve name
+       0 physical address
+       0 virtual address
+      2F size of raw data
+      B4 file pointer to raw data (000000B4 to 000000E2)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+  100A00 flags
+         Info
+         Remove
+         1 byte align
+
+RAW DATA #1
+  00000000: 20 20 20 2F 44 45 46 41 55 4C 54 4C 49 42 3A 22     /DEFAULTLIB:"
+  00000010: 4C 49 42 43 4D 54 22 20 2F 44 45 46 41 55 4C 54  LIBCMT" /DEFAULT
+  00000020: 4C 49 42 3A 22 4F 4C 44 4E 41 4D 45 53 22 20     LIB:"OLDNAMES" 
+
+   Linker Directives
+   -----------------
+   /DEFAULTLIB:LIBCMT
+   /DEFAULTLIB:OLDNAMES
+
+SECTION HEADER #2
+.debug$S name
+       0 physical address
+       0 virtual address
+      94 size of raw data
+      E3 file pointer to raw data (000000E3 to 00000176)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42100040 flags
+         Initialized Data
+         Discardable
+         1 byte align
+         Read Only
+
+RAW DATA #2
+  00000000: 04 00 00 00 F1 00 00 00 85 00 00 00 47 00 01 11  ....ñ.......G...
+  00000010: 00 00 00 00 41 3A 5C 47 4E 55 2D 6C 64 2D 66 6F  ....A:\GNU-ld-fo
+  00000020: 72 2D 4D 69 63 72 6F 73 6F 66 74 43 4F 46 46 2D  r-MicrosoftCOFF-
+  00000030: 74 6F 2D 4C 69 6E 75 78 45 4C 46 5C 6C 64 42 75  to-LinuxELF\ldBu
+  00000040: 67 53 74 72 75 63 74 30 5C 6F 70 74 69 5F 4F 64  gStruct0\opti_Od
+  00000050: 2E 6F 62 6A 00 3A 00 3C 11 00 62 00 00 D0 00 13  .obj.:.<..b..Ð..
+  00000060: 00 1A 00 86 70 00 00 13 00 1A 00 86 70 00 00 4D  ....p.......p..M
+  00000070: 69 63 72 6F 73 6F 66 74 20 28 52 29 20 4F 70 74  icrosoft (R) Opt
+  00000080: 69 6D 69 7A 69 6E 67 20 43 6F 6D 70 69 6C 65 72  imizing Compiler
+  00000090: 00 00 00 00                                      ....
+
+SECTION HEADER #3
+.text$mn name
+       0 physical address
+       0 virtual address
+      70 size of raw data
+     177 file pointer to raw data (00000177 to 000001E6)
+     1E7 file pointer to relocation table
+       0 file pointer to line numbers
+       4 number of relocations
+       0 number of line numbers
+60500020 flags
+         Code
+         16 byte align
+         Execute Read
+
+RAW DATA #3
+  00000000: 48 89 4C 24 08 B8 10 00 00 00 48 6B C0 00 48 8D  H.L$.¸....HkÀ.H.
+  00000010: 0D 00 00 00 00 C6 04 01 11 B8 10 00 00 00 48 6B  .....Æ...¸....Hk
+  00000020: C0 00 48 8D 0D 00 00 00 00 BA 22 22 00 00 66 89  À.H......º""..f.
+  00000030: 54 01 02 B8 10 00 00 00 48 6B C0 00 48 8D 0D 00  T..¸....HkÀ.H...
+  00000040: 00 00 00 C7 44 01 04 44 44 44 44 B8 10 00 00 00  ...ÇD..DDDD¸....
+  00000050: 48 6B C0 00 48 8D 0D 00 00 00 00 48 BA 88 88 88  HkÀ.H......Hº...
+  00000060: 88 88 88 88 88 48 89 54 01 08 B8 FF FF FF FF C3  .....H.T..¸ÿÿÿÿÃ
+
+RELOCATIONS #3
+                                                Symbol    Symbol
+ Offset    Type              Applied To         Index     Name
+ --------  ----------------  -----------------  --------  ------
+ 00000011  REL32                      00000000         9  Struct
+ 00000025  REL32                      00000000         9  Struct
+ 0000003F  REL32                      00000000         9  Struct
+ 00000057  REL32                      00000000         9  Struct
+
+SECTION HEADER #4
+ .chks64 name
+       0 physical address
+       0 virtual address
+      20 size of raw data
+     20F file pointer to raw data (0000020F to 0000022E)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+     A00 flags
+         Info
+         Remove
+         (no align specified)
+
+RAW DATA #4
+  00000000: 23 07 66 15 27 1A BF 1A 1D 15 01 87 ED 2B 65 88  #.f.'.¿.....í+e.
+  00000010: 23 25 10 C0 45 23 48 64 00 00 00 00 00 00 00 00  #%.ÀE#Hd........
+
+COFF SYMBOL TABLE
+000 01047086 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   2F, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   94, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   70, #relocs    4, #linenums    0, checksum CDF925BF
+008 00000000 SECT3  notype ()    External     | opti_Od
+009 00000000 UNDEF  notype       External     | Struct
+00A 00000000 SECT4  notype       Static       | .chks64
+    Section length   20, #relocs    0, #linenums    0, checksum        0
+
+String Table Size = 0x0 bytes
+
+  Summary
+
+          20 .chks64
+          94 .debug$S
+          2F .drectve
+          70 .text$mn

@@ -12,7 +12,7 @@ rem /Gw[-] separate global variables for linker
 rem /Gy[-] separate functions for linker    /GS[-] enable security checks
 rem /GL[-] enable link-time code generation
 rem 
-cl /nologo /c /Gw /Gy- /Od /Gu /GL- *.c
+cl /nologo /c /Gw /Gy /Od /Gu /GL- *.c
 
 rem 
 rem LINK (GNU ld) all those .OBJ-modules to an Linux .ELF executable in WSL (Windows Subsystem Linux) 

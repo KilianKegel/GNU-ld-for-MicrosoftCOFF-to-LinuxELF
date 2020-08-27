@@ -1,14 +1,12 @@
 
 Discarded input sections
 
+ .drectve       0x0000000000000000       0x2f getaddr1.obj
+ .chks64        0x0000000000000000       0x40 getaddr1.obj
+ .drectve       0x0000000000000000       0x2f getaddr2.obj
+ .chks64        0x0000000000000000       0x30 getaddr2.obj
  .drectve       0x0000000000000000       0x2f main.obj
- .chks64        0x0000000000000000       0x38 main.obj
- .drectve       0x0000000000000000       0x2f mod1MSFT.obj
- .chks64        0x0000000000000000       0x38 mod1MSFT.obj
- .drectve       0x0000000000000000       0x2f mod2MSFT.obj
- .chks64        0x0000000000000000       0x28 mod2MSFT.obj
- .drectve       0x0000000000000000       0x2f mod3MSFT.obj
- .chks64        0x0000000000000000       0x28 mod3MSFT.obj
+ .chks64        0x0000000000000000       0x40 main.obj
 
 Memory Configuration
 
@@ -17,10 +15,9 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
+LOAD getaddr1.obj
+LOAD getaddr2.obj
 LOAD main.obj
-LOAD mod1MSFT.obj
-LOAD mod2MSFT.obj
-LOAD mod3MSFT.obj
                 [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
                 0x0000000000400120                . = (SEGMENT_START ("text-segment", 0x400000) + SIZEOF_HEADERS)
 
@@ -97,18 +94,15 @@ LOAD mod3MSFT.obj
  *(.text .stub .text.* .gnu.linkonce.t.*)
  *(.gnu.warning)
 
-.text$mn        0x0000000000401000       0x48
- .text$mn       0x0000000000401000       0x18 main.obj
-                0x0000000000401000                begin
+.text$mn        0x0000000000401000       0x33
+ .text$mn       0x0000000000401000        0x8 getaddr1.obj
+                0x0000000000401000                getaddr1
+ *fill*         0x0000000000401008        0x8 
+ .text$mn       0x0000000000401010        0x8 getaddr2.obj
+                0x0000000000401010                getaddr2
  *fill*         0x0000000000401018        0x8 
- .text$mn       0x0000000000401020        0x8 mod1MSFT.obj
-                0x0000000000401020                getaddr1
- *fill*         0x0000000000401028        0x8 
- .text$mn       0x0000000000401030        0x8 mod2MSFT.obj
-                0x0000000000401030                getaddr2
- *fill*         0x0000000000401038        0x8 
- .text$mn       0x0000000000401040        0x8 mod3MSFT.obj
-                0x0000000000401040                getaddr3
+ .text$mn       0x0000000000401020       0x13 main.obj
+                0x0000000000401020                begin
 
 .fini
  *(SORT_NONE(.fini))
@@ -232,7 +226,7 @@ LOAD mod3MSFT.obj
 .bss            0x0000000000403014        0x4
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000000403014        0x1 mod1MSFT.obj
+ .bss           0x0000000000403014        0x1 getaddr1.obj
                 0x0000000000403014                var
  *(COMMON)
                 0x0000000000403018                . = ALIGN ((. != 0x0)?0x8:0x1)
@@ -353,14 +347,15 @@ LOAD mod3MSFT.obj
 OUTPUT(program.elf elf64-x86-64)
 
 .unqRlcs        0x0000000000000000        0x0
+ .unqRlcs       0x0000000000000000        0x0 getaddr1.obj
+ .unqRlcs       0x0000000000000000        0x0 getaddr1.obj
+ .unqRlcs       0x0000000000000000        0x0 getaddr1.obj
+ .unqRlcs       0x0000000000000000        0x0 getaddr2.obj
+ .unqRlcs       0x0000000000000000        0x0 getaddr2.obj
  .unqRlcs       0x0000000000000000        0x0 main.obj
- .unqRlcs       0x0000000000000000        0x0 mod1MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 mod1MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 mod2MSFT.obj
- .unqRlcs       0x0000000000000000        0x0 mod3MSFT.obj
+ .unqRlcs       0x0000000000000000        0x0 main.obj
 
-.debug$S        0x0000000000000000      0x23c
- .debug$S       0x0000000000000000       0x8c main.obj
- .debug$S       0x000000000000008c       0x90 mod1MSFT.obj
- .debug$S       0x000000000000011c       0x90 mod2MSFT.obj
- .debug$S       0x00000000000001ac       0x90 mod3MSFT.obj
+.debug$S        0x0000000000000000      0x1ac
+ .debug$S       0x0000000000000000       0x90 getaddr1.obj
+ .debug$S       0x0000000000000090       0x90 getaddr2.obj
+ .debug$S       0x0000000000000120       0x8c main.obj

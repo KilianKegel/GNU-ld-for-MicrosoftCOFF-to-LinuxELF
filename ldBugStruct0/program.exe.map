@@ -1,0 +1,51 @@
+ program
+
+ Timestamp is 5f43fac4 (Mon Aug 24 19:37:08 2020)
+
+ Preferred load address is 0000000140000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000000d0H .text$mn                CODE
+ 0002:00000000 0000001cH .rdata                  DATA
+ 0002:0000001c 00000080H .rdata$zzzdbg           DATA
+ 0002:0000009c 00000008H .xdata                  DATA
+ 0002:000000a4 00000000H .edata                  DATA
+ 0003:00000000 00000020H .data                   DATA
+ 0003:00000020 00000008H .bss                    DATA
+ 0004:00000000 0000000cH .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0000:00000000       __dynamic_value_reloc_table 0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_iat     0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __AbsoluteZero             0000000000000000     <absolute>
+ 0000:00000000       __enclave_config           0000000000000000     <absolute>
+ 0000:00000000       __arm64x_native_entrypoint 0000000000000000     <absolute>
+ 0000:00000000       __guard_eh_cont_table      0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_table          0000000000000000     <absolute>
+ 0000:00000000       __guard_flags              0000000000000000     <absolute>
+ 0000:00000000       __arm64x_redirection_metadata 0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_table      0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_count      0000000000000000     <absolute>
+ 0000:00000000       __guard_eh_cont_count      0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
+ 0000:00000000       __hybrid_code_map_count    0000000000000000     <absolute>
+ 0000:00000000       __x64_code_ranges_to_entry_points 0000000000000000     <absolute>
+ 0000:00000000       __hybrid_code_map          0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_count          0000000000000000     <absolute>
+ 0000:00000000       __volatile_metadata        0000000000000000     <absolute>
+ 0001:00000000       begin                      0000000140001000 f   main.obj
+ 0001:00000020       opti_O1                    0000000140001020 f   opti_O1.obj
+ 0001:00000060       opti_Od                    0000000140001060 f   opti_Od.obj
+ 0003:00000000       Struct                     0000000140003000     struct.obj
+ 0003:00000020       c                          0000000140003020     <common>
+
+ entry point at        0001:00000000
+
+ Static symbols
+
+ 0002:0000009c       $unwind$begin              000000014000209c     main.obj
+ 0004:00000000       $pdata$begin               0000000140004000     main.obj
