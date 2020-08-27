@@ -27,6 +27,7 @@ During my comprehensive exploration it was found that
 
 The build platform was installed following that recipe:
 https://github.com/KilianKegel/HowTo-setup-an-UEFI-Development-PC#howto-setup-an-uefi-development-pc
+But only step (1), (2) and (15) are truly required.
 
 ### Build Target
 Build target is .ELF x86_64 only.
@@ -66,7 +67,7 @@ int the different directories:
 [**`ldBugDemo1`**](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/master/ldBugDemo1) and 
 [**ldBugDemo2``**](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/master/ldBugDemo2).
 
-1. `main.c` for ldBugDemo0, ldBugDemo1 and ldBugDemo2 always the same
+1. [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/main.c) for ldBugDemo0, ldBugDemo1 and ldBugDemo2 always the same
 
 ```c
     //main.c
@@ -80,13 +81,13 @@ int the different directories:
     }
 ```
 
-2. `getaddr1.c`  modified declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 and ldBugDemo2
+2. [`getaddr1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr1.c)  modified declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 and ldBugDemo2
 
 ```c
     //getaddr1.c
-    char var;           // in ldBugDemo0
-    char var = 0;       // in ldBugDemo1
-    extern char var;    // in ldBugDemo2
+    char var;           // in [ldBugDemo0](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr1.c) 
+    char var = 0;       // in [ldBugDemo1](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo1/getaddr1.c) 
+    extern char var;    // in [ldBugDemo2](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo2/getaddr1.c) 
     void* getaddr1(void)
     {
         return &var;
