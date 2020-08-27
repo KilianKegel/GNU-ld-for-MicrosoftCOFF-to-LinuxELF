@@ -81,13 +81,16 @@ int the different directories:
     }
 ```
 
-2. [`getaddr1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr1.c)  modified declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 and ldBugDemo2
+2. ldBugDemo0/[`getaddr1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr1.c), 
+ldBugDemo1/[`getaddr1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo1/getaddr1.c), 
+ldBugDemo2/[`getaddr1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo2/getaddr1.c), modified 
+declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 and ldBugDemo2
 
 ```c
     //getaddr1.c
-    char var;           // in [ldBugDemo0](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo0/getaddr1.c) 
-    char var = 0;       // in [ldBugDemo1](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo1/getaddr1.c) 
-    extern char var;    // in [ldBugDemo2](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugDemo2/getaddr1.c) 
+    char var;           // in ldBugDemo0
+    char var = 0;       // in ldBugDemo1
+    extern char var;    // in ldBugDemo2
     void* getaddr1(void)
     {
         return &var;
