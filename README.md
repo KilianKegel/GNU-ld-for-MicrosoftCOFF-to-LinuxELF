@@ -8,7 +8,7 @@ it turned out, that the **GNU** linker **ld** doesn't sufficiently understand th
 
 All .LIB and .OBJ modules created with the latest version of Visual Studio 2019 VS2019
 are taken and processed by **GNU ld** (`GNU ld (GNU Binutils for Ubuntu) 2.34`) without any complaint, 
-but the created .ELF image does not run at all, for many of the same reasons.
+but the created .ELF image does not run at all, for many of the same reasons metioned below.
 
 During my comprehensive exploration I found that
 * placement of uninitialized data (global variables not explicitly set to 0) in .BSS section
