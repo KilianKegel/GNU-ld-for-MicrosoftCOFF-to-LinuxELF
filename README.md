@@ -4,14 +4,14 @@
 
 While implementing support for LINUX x86_64 to the 
 [**Torito C Library**](https://github.com/KilianKegel/torito-C-Library#torito-c-library) 
-it was found, that the **GNU** linker **ld** doesn't sufficiently understand the Microsoft COFF file format for .OBJ modules.
+it turned out, that the **GNU** linker **ld** doesn't sufficiently understand the Microsoft COFF file format for .OBJ modules.
 
 All .LIB and .OBJ modules created with the latest version of Visual Studio 2019 VS2019
 are taken and processed by **GNU ld** (`GNU ld (GNU Binutils for Ubuntu) 2.34`) without any complaint, 
 but the created .ELF image does not run at all, for many of the same reasons.
 
-During my comprehensive exploration it was found that
-* placement of uninitialized data (global variables not explicitely set to 0) in .BSS section
+During my comprehensive exploration I found that
+* placement of uninitialized data (global variables not explicitly set to 0) in .BSS section
   creates accesses to faulty addresses for data
 * modules translated without the compiler switches `/Gw` and `/Gy`
     * `/Gw[-]` separate global variables for linker
@@ -25,7 +25,7 @@ During my comprehensive exploration it was found that
 * VS2019 
 * Windows Subystem Linux (WSL2) running a Ubuntu 20.04 image
 
-The build platform was installed following that recipe:
+The build platform was installed following this recipe:
 https://github.com/KilianKegel/HowTo-setup-an-UEFI-Development-PC#howto-setup-an-uefi-development-pc
 But only step (1), (2) and (15) are truly required.
 
@@ -61,8 +61,8 @@ variable, but is accidentally subtracted from the real address.**
 ![file bssbugDMP.png not found](bssbugDMP.png)
 
 ### Demonstration of the .BSS bug
-The test is composed out of a view .C files only. 
-The only thing that are modified to demonstrate
+The test is composed of a few .C files only. 
+The only thing that is modified to demonstrate
 the .BSS bug is the declaration/definition/initialization of **`var`**
 int the different directories: 
 [**`ldBugDemo0`**](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/master/ldBugDemo0), 
@@ -120,11 +120,11 @@ declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 an
 # OPTIMIZATION bug
 The optimization bug was seen when accessing structures. 
 In this specific occurence it appears with compiler optimization enabled
-and it disappears w/o optimization, Microsoft C compiler switch `/Od`.
+and it disappears with optimization disabled, Microsoft C compiler switch `/Od`.
 
 ### Demonstration of the OPTIMIZATION bug
 The structure `Struct[0]` is initialized wrongly by optimized code in `opti_O1.c`
-and it is initialized correctly  with code optimization disabled in `opti_Od.c`.
+and it is initialized correctly with code optimization disabled in `opti_Od.c`.
 
 1. [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/main.c)
 
@@ -278,7 +278,7 @@ Disassembly of section .text$mn:
 
 [Comparing](optimizationDMP.html) the .OBJ modules of [`opti_O1.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_O1.c)
 and [`opti_Od.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStruct0/opti_Od.c)
-makes me believe, that teher is something wrong in the RELOCATION section regarding REL32, REL32_1 and REL32_4. Maybe that
+makes me believe, that there is something wrong in the RELOCATION section regarding REL32, REL32_1 and REL32_4. Maybe 
 relocation types are not yet implemented.
 
 ![file optimizationDMP.png not found](optimizationDMP.png)
