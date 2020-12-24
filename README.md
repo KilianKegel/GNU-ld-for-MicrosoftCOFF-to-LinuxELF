@@ -1,5 +1,5 @@
 # GNU-ld-for-MicrosoftCOFF-To-LinuxELF
-
+* [History](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/edit/master/README.md#history)
 # Introduction
 
 While implementing support for LINUX x86_64 to the 
@@ -283,3 +283,17 @@ makes me believe, that there is something wrong in the RELOCATION section regard
 relocation types are not yet implemented.
 
 ![file optimizationDMP.png not found](optimizationDMP.png)
+
+## History
+### 20201018
+* inital version of https://github.com/KilianKegel/torito-LINK
+### 20200916 
+* issues officially solved by H.J. Lu (hongjiu.lu@intel.com)
+* https://sourceware.org/bugzilla/show_bug.cgi?id=26583
+### 20200915
+* fix implemented https://github.com/KilianKegel/binutils-for-Torito-C-Library into
+  current *binutils 2.35* 
+### 20200908 
+* issues reported at https://sourceware.org/bugzilla and accepted by H.J. Lu (hongjiu.lu@intel.com)
+ 
+
