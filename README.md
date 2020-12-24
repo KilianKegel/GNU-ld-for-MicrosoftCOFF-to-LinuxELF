@@ -1,6 +1,6 @@
 # GNU-ld-for-MicrosoftCOFF-To-LinuxELF
 
-* [History](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/edit/master#history)
+* [History](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF#history)
 
 # Introduction
 
