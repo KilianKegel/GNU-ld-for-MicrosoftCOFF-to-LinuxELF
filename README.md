@@ -286,7 +286,73 @@ relocation types are not yet implemented.
 
 ![file optimizationDMP.png not found](optimizationDMP.png)
 
+# STATIC ADDRESS ASSIGNMENT bug
+
+Statically assigned addresses are assigned wrongly.
+This is true for *initialized* variables in the .DATA sections and
+for *non-initialized* variables in the .BSS sections.
+
+From the the source code below the ```c if()``` condition should never reach
+the ```c__debugbreak()```.
+
+[`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStaticAddressAssignment/main.c)
+```c
+//main.c
+
+typedef struct _SAMPLESTRUCT
+{
+    char* pinitializedVar;      // pointer to "initialized variable" in .DATA
+    char* pnon_initialVar;      // pointer to "non-initialized variable" in .BSS
+
+}SAMPLESTRUCT;
+
+SAMPLESTRUCT Struct;            // prototype of structure
+
+//
+// initialized variables
+//
+char initdummy = 0xAA;          // this is begin of .DATA
+char initializedVar  = 0x55;    // at &initdummy + 1 (sizeof(char))
+//
+// non-initialized variables
+//
+char non_initdummy;             // this is begin of .BSS
+char non_initialVar;            // at &non_initdummy + 1 (sizeof(char))
+
+void begin(void)
+{
+    //static volatile int i = 0x99;         // dead loop for Windows version
+    //while (0x99 == i)
+    //    ;
+
+    __debugbreak();             // break for GDB for initial break after RUN command
+    if (&initializedVar != Struct.pinitializedVar)
+        __debugbreak();         // should never reach this INT3/TRAP
+
+    if (&non_initialVar != Struct.pnon_initialVar)
+        __debugbreak();         // should never reach this INT3/TRAP
+    
+    outp(0x80, 0x12);
+}
+
+SAMPLESTRUCT Struct =           // instance  of structure
+{
+    &initializedVar,
+    &non_initialVar
+};
+```
+
+But in the LD-linked .ELF version the structure elements were assigned with faulty addresses
+and the programm runs in the INT3/TRAP in the ```c if()``` condition:
+![file ldBugStaticalAddressAssignmentLDError.png not found](ldBugStaticalAddressAssignmentLDError.png)
+
+Instead in the LINK.EXE-linked .EXE version the structure elements were assigned correctly:
+![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
+
 ## History
+### 20210110
+* new bug: *static address assignment bug*
+
 ### 20201018
 * inital version of https://github.com/KilianKegel/torito-LINK
 ### 20200916 
