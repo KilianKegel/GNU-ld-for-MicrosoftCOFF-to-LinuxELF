@@ -345,11 +345,11 @@ SAMPLESTRUCT Struct =           // instance  of structure
 ```
 
 But in the LD-linked .ELF version the structure elements were assigned with faulty addresses
-and the programm runs in the INT3/TRAP in the ``` if()``` condition:
+and the programm runs in the INT3/TRAP in the ``` if()``` condition :
 
 ![file ldBugStaticalAddressAssignmentLDError.png not found](ldBugStaticalAddressAssignmentLDError.png)
 
-Instead in the LINK.EXE-linked .EXE version the structure elements were assigned correctly:
+Instead in the LINK.EXE-linked .EXE version the structure elements were assigned correctly :
 
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
