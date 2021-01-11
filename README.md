@@ -292,8 +292,10 @@ Statically assigned addresses are assigned wrongly.
 This is true for *initialized* variables in the .DATA sections and
 for *non-initialized* variables in the .BSS sections.
 
-From the the source code below the ```c if()``` condition should never reach
-the ```c__debugbreak()```.
+All .MAP .OBJ and .DIS (disassembler) were stored [here](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/master/ldBugStaticAddressAssignment)
+
+From the the source code below the ``` if()``` condition should never reach
+the ```__debugbreak()```.
 
 [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugStaticAddressAssignment/main.c)
 ```c
@@ -343,10 +345,12 @@ SAMPLESTRUCT Struct =           // instance  of structure
 ```
 
 But in the LD-linked .ELF version the structure elements were assigned with faulty addresses
-and the programm runs in the INT3/TRAP in the ```c if()``` condition:
+and the programm runs in the INT3/TRAP in the ``` if()``` condition:
+
 ![file ldBugStaticalAddressAssignmentLDError.png not found](ldBugStaticalAddressAssignmentLDError.png)
 
 Instead in the LINK.EXE-linked .EXE version the structure elements were assigned correctly:
+
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
 ## History
