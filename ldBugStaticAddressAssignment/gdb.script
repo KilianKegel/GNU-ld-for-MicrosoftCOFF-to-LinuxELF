@@ -1,0 +1,5 @@
+run 
+disassemble
+x /100xw 0x402000
+q 
+y 

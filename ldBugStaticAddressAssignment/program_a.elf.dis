@@ -1,0 +1,21 @@
+
+program.elf:     file format elf64-x86-64
+
+
+Disassembly of section .text$mn:
+
+0000000000401000 <begin>:
+  401000:	66 90                	xchg   %ax,%ax
+  401002:	cc                   	int3   
+  401003:	48 8d 05 07 10 00 00 	lea    0x1007(%rip),%rax        # 402011 <initializedVar>
+  40100a:	48 3b 05 ef 0f 00 00 	cmp    0xfef(%rip),%rax        # 402000 <Struct>
+  401011:	74 01                	je     401014 <begin+0x14>
+  401013:	cc                   	int3   
+  401014:	48 8d 05 fa 0f 00 00 	lea    0xffa(%rip),%rax        # 402015 <non_initialVar>
+  40101b:	48 3b 05 e6 0f 00 00 	cmp    0xfe6(%rip),%rax        # 402008 <Struct+0x8>
+  401022:	74 01                	je     401025 <begin+0x25>
+  401024:	cc                   	int3   
+  401025:	66 ba 80 00          	mov    $0x80,%dx
+  401029:	b0 12                	mov    $0x12,%al
+  40102b:	ee                   	out    %al,(%dx)
+  40102c:	c3                   	retq   

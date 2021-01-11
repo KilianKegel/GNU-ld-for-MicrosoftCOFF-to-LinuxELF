@@ -1,0 +1,33 @@
+Microsoft (R) COFF/PE Dumper Version 14.26.28806.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file program.exe
+
+File Type: EXECUTABLE IMAGE
+
+  0000000140001000: 66 90              xchg        ax,ax
+  0000000140001002: CC                 int         3
+  0000000140001003: 48 8D 05 07 20 00  lea         rax,[0000000140003011h]
+                    00
+  000000014000100A: 48 3B 05 EF 1F 00  cmp         rax,qword ptr [0000000140003000h]
+                    00
+  0000000140001011: 74 01              je          0000000140001014
+  0000000140001013: CC                 int         3
+  0000000140001014: 48 8D 05 F7 1F 00  lea         rax,[0000000140003012h]
+                    00
+  000000014000101B: 48 3B 05 E6 1F 00  cmp         rax,qword ptr [0000000140003008h]
+                    00
+  0000000140001022: 74 01              je          0000000140001025
+  0000000140001024: CC                 int         3
+  0000000140001025: 66 BA 80 00        mov         dx,80h
+  0000000140001029: B0 12              mov         al,12h
+  000000014000102B: EE                 out         dx,al
+  000000014000102C: C3                 ret
+
+  Summary
+
+        1000 .data
+        1000 .rdata
+        1000 .reloc
+        1000 .text

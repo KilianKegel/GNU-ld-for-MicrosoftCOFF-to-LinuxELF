@@ -1,0 +1,67 @@
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from program.elf...
+(No debugging symbols found in program.elf)
+(gdb) Starting program: /mnt/c/GNU-ld-for-MicrosoftCOFF-to-LinuxELFNew/ldBugStaticAddressAssignment/program.elf 
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x0000000000401003 in begin ()
+(gdb) Dump of assembler code for function begin:
+   0x0000000000401000 <+0>:	xchg   %ax,%ax
+   0x0000000000401002 <+2>:	int3   
+=> 0x0000000000401003 <+3>:	lea    0x1007(%rip),%rax        # 0x402011
+   0x000000000040100a <+10>:	cmp    0xfef(%rip),%rax        # 0x402000
+   0x0000000000401011 <+17>:	je     0x401014 <begin+20>
+   0x0000000000401013 <+19>:	int3   
+   0x0000000000401014 <+20>:	lea    0xffa(%rip),%rax        # 0x402015
+   0x000000000040101b <+27>:	cmp    0xfe6(%rip),%rax        # 0x402008
+   0x0000000000401022 <+34>:	je     0x401025 <begin+37>
+   0x0000000000401024 <+36>:	int3   
+   0x0000000000401025 <+37>:	mov    $0x80,%dx
+   0x0000000000401029 <+41>:	mov    $0x12,%al
+   0x000000000040102b <+43>:	out    %al,(%dx)
+   0x000000000040102c <+44>:	retq   
+End of assembler dump.
+(gdb) 0x402000:	0x00402022	0x00000000	0x00402016	0x00000000
+0x402010:	0x000055aa	0x00000000	0x00000000	0x00000000
+0x402020:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402030:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402040:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402050:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402060:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402070:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402080:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402090:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020a0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020b0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020c0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020d0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020e0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x4020f0:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402100:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402110:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402120:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402130:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402140:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402150:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402160:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402170:	0x00000000	0x00000000	0x00000000	0x00000000
+0x402180:	0x00000000	0x00000000	0x00000000	0x00000000
+(gdb) A debugging session is active.
+
+	Inferior 1 [process 19] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
