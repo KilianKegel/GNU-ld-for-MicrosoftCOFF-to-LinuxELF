@@ -356,10 +356,10 @@ Instead in the LINK.EXE-linked .EXE version the structure elements were assigned
 # __ImageBase not injected
 With compiler optimization enabled the Microsoft compiler CL.EXE generates a symbol ```__ImageBase```,
 depending on code characteristics:
-(On the right side ```__ImageBase``` *is* used to access two different variables, ```wday_name_short``` and ```xday_name_short```,
-On the left it *is not* used, since there is only one single variable ```wday_name_short```)
+(On the [`right`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/ibase0.c) side ```__ImageBase``` *is* used to access two different variables, ```wday_name_short``` and ```xday_name_short```,
+On the [`left`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/ibase0.c) it *is not* used, since there is only one single variable ```wday_name_short```)
 
-![file ldBugImageBase\CodeCharacteristics.png not found](ldBugImageBase\CodeCharacteristics.png)
+![file ldBugImageBase/CodeCharacteristics.png not found](ldBugImageBase/CodeCharacteristics.png)
 
 With compiler optimization disabled the symbol ```__ImageBase``` was not seen at all.
 
@@ -384,7 +384,7 @@ the loaded program.
  ```
 
  At Windows runtime ```__ImageBase``` points to the **MZ-EXE-Header**
-![file ldBugImageBase\runtimeImageBase.png not found](ldBugImageBase\runtimeImageBase.png)
+![file ldBugImageBase/runtimeImageBase.png not found](ldBugImageBase/runtimeImageBase.png)
 
 
 ## History
