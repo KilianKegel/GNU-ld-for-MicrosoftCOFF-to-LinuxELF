@@ -8,5 +8,5 @@ void begin1(void)
     while (1 == deadloopvar)
         ;
     xfunc(wday_name_short[i]);
-    xfunc(wday_name_short[i]);
+    xfunc(wday_name_short[i]); // use wday_name_short a second time
 }
