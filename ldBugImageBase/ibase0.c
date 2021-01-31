@@ -10,5 +10,5 @@ void begin(void)
     while (1 == deadloopvar)
         ;
     xfunc(wday_name_short[i]);
-    xfunc(xday_name_short[i]);
+    xfunc(xday_name_short[i]); // use xday_name_short instead of wday_name_short
 }
