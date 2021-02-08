@@ -30,7 +30,7 @@ During my comprehensive exploration I found that
 
 The build platform was installed following this recipe:
 https://github.com/KilianKegel/HowTo-setup-an-UEFI-Development-PC#howto-setup-an-uefi-development-pc
-But only step (1), (2) and (15) are truly required.
+But only step (1), (2) and (16) are truly required.
 
 ### Build Target
 Build target is .ELF x86_64 only.
@@ -361,6 +361,10 @@ if special program characteristics were met.
 
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
 Agner Fog from Technical University of Denmark describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
+
+The Microsoft Linker LINK.EXE injects the symbol ```__ImageBase``` at link time if required.
+
+![file ldBugImageBase\PNG\map.png not found](ldBugImageBase/PNG/map.png)
 
 
 
