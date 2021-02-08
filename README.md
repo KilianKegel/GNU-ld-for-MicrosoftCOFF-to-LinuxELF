@@ -353,7 +353,19 @@ Instead in the LINK.EXE-linked .EXE version the structure elements were assigned
 
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
-# __ImageBase not injected
+# __ImageBase supported wrongly
+
+with optimization setting enabled (```/O1```, ```/O2```) the code generator
+of the Microsoft C compiler may use the ```__ImageBase``` relative addressing method,
+if special program characteristics were met.
+
+In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
+Agner Fog from Technical University of Denmark describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
+
+
+
+
+
 With compiler optimization enabled the Microsoft compiler CL.EXE generates a symbol ```__ImageBase```,
 depending on code characteristics:
 (On the [`right`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/ibase0.c) side ```__ImageBase``` *is* used to access two different variables, ```wday_name_short``` and ```xday_name_short```,
