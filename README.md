@@ -353,21 +353,141 @@ Instead in the LINK.EXE-linked .EXE version the structure elements were assigned
 
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
-# __ImageBase supported wrongly
+# Image-relative addressing bug
 
-with optimization setting enabled (```/O1```, ```/O2```) the code generator
+With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler may use the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
 
+## General description
+
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
-Agner Fog from Technical University of Denmark describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
+Agner Fog describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
 
 The Microsoft Linker LINK.EXE injects the symbol ```__ImageBase``` at link time if required.
+In the sample below the RVA (relative virtual address) of 0x140000000 is assigned to ```__ImageBase```.
 
 ![file ldBugImageBase\PNG\map.png not found](ldBugImageBase/PNG/map.png)
 
+The address of the loaded program image is assigned to ```__ImageBase```, 
+that is the MZ-EXE-Header.
+
+The references to image-relative addressed symbols (it  depends on program characteristics and optimization settings)
+that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
+here: https://www.amd.com/system/files/TechDocs/24592.pdf#page=50
+
+The compiler uses the relocation type ```IMAGE_REL_AMD64_ADDR32NB```
+([`The Common Language Infrastructure Annotated Standard`](https://books.google.de/books?id=50PhgS8vjhwC&pg=PA755&lpg=PA755&dq=REL32+ADDR32NB&source=bl&ots=v0Fv0kz3pR&sig=ACfU3U3WLFskN3kb94ktZ7ZnomEPHMf-pg&hl=en&sa=X&ved=2ahUKEwibycnIsd7uAhUDolwKHTslAaEQ6AEwB3oECAwQAg#v=onepage&q=REL32%20ADDR32NB&f=false),
+http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.html).
+in the .OBJ module:
+
+![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
+
+The source code below implements the test scenario: [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/main.c)
+
+```c
+/*
+  compile with:
+    cl / TC / DLINUXTARGET = 1 / DUSEPRINTF4OUTPUT = 0 / nologo / c / O1 / GS - / Ob0 / FoBareCode4Linux.obj / DBREAKORNOP = __debugbreak() main.c
+    cl / TC / DLINUXTARGET = 0 / DUSEPRINTF4OUTPUT = 0 / nologo / c / O1 / GS - / Ob0 / FoBareCode4Windo.obj / DBREAKORNOP = __nop()        main.c
+    cl / TC / DLINUXTARGET = 0 / DUSEPRINTF4OUTPUT = 1 / nologo / O1 / GS - / Ob0 / FoWinConsole.obj / DBREAKORNOP = __nop() main.c
+*/
+volatile int deadloopvar = 1;
+
+void xfunc(const char c)
+{
+    //
+    // GDB: info registers 
+    // GDB: check register CL to hold the expected value 0,1,2 .. A,B,C
+    //
+    __debugbreak();
+}
+
+void xstring(char* str)
+{
+    int i = 0;
+
+    while (str[i])
+        xfunc(str[i++]);
+}
+
+int main(int argc, char** argv)
+{
+    unsigned long long tsc; // tsc is just inserted to get BREAKORNOP generated 0xCC/0x90 opcode
+                            // sync in the .OBJ/binary
+
+    if (1) {
+    //
+    // NOTE: this arrangement of source code is just to have similiar machine code for Windows and Linux
+    //
+        BREAKORNOP;                     // NOP or INT3 depending on /DBREAKORNOP=__debugbreak() or /DBREAKORNOP=__nop()
+        while (1 == deadloopvar)        // deadloop for Windows debugging
+            ;
+
+        tsc = __rdtsc();
+    }
+
+    if (tsc/*TSC is never, never 0*/)
+    {
+#define STRING0 "AB"
+
+        int i, j, x;
+        static char buffer[5] = { "1234" };                 // pre-inialized array
+        //
+        // NOTE: when accessing static data "indexed", the compiler uses __ImageBase addressing scheme
+        //       (with optimization enabled only)
+        //
+        static size_t   sizeTable[] = { sizeof(STRING0) };  // array that is accessed "indexed"
+        static char* stringTable[] = { STRING0 };           // array that is accessed "indexed"
+
+        for (j = 0; j < sizeof(sizeTable) / sizeof(sizeTable[0]); j++)
+        {
+
+            x = (int)(sizeof(buffer) - sizeTable[j]) / 2;
+            i = 0;
+
+            while (stringTable[j][i])
+                buffer[x++] = stringTable[j][i++];
+            //
+            // print/write "1AB4"
+            //
+
+#if     0 == USEPRINTF4OUTPUT
+            xstring(buffer);
+#else// 0 == USEPRINTF4OUTPUT
+            printf("%s\n", buffer);
+#endif//0 == USEPRINTF4OUTPUT
+        }
+    }
+#if     0 == USEPRINTF4OUTPUT
+    xfunc(0xAA);    // signal end of second loop
+#endif//0 == USEPRINTF4OUTPUT
+    return 0;
+}
+```
+
+## Linking for Linux
+
+As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
+for the adressing scheme, that the linker artificially injects at link time.
+
+The **GNU ld** needs to get ```__ImageBase``` assigned as a command line parameter:
+```
+--defsym=__ImageBase=0x400000
+```
+
+0x400000 is the default load address and is equal to ```__executable_start``` from
+the default **GNU ld** link script https://github.com/KilianKegel/torito-LINK/blob/main/main.c#L1339.
 
 
+
+
+
+
+
+In **binutils ld** Linux linker the symbol ```__ImageBase``` at link time if required.
+
+Y
 
 
 With compiler optimization enabled the Microsoft compiler CL.EXE generates a symbol ```__ImageBase```,

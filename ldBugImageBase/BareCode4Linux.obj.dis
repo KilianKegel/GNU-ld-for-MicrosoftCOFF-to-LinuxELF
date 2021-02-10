@@ -1,0 +1,94 @@
+Microsoft (R) COFF/PE Dumper Version 14.28.29336.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file BareCode4Linux.obj
+
+File Type: COFF OBJECT
+
+main:
+  0000000000000000: 48 89 5C 24 08     mov         qword ptr [rsp+8],rbx
+  0000000000000005: 48 89 6C 24 10     mov         qword ptr [rsp+10h],rbp
+  000000000000000A: 48 89 74 24 20     mov         qword ptr [rsp+20h],rsi
+  000000000000000F: 57                 push        rdi
+  0000000000000010: 48 83 EC 20        sub         rsp,20h
+  0000000000000014: CC                 int         3
+  0000000000000015: 8B 05 00 00 00 00  mov         eax,dword ptr [deadloopvar]
+  000000000000001B: 83 F8 01           cmp         eax,1
+  000000000000001E: 74 F5              je          0000000000000015
+  0000000000000020: 0F 31              rdtsc
+  0000000000000022: 48 C1 E2 20        shl         rdx,20h
+  0000000000000026: 48 0B C2           or          rax,rdx
+  0000000000000029: 74 5D              je          0000000000000088
+  000000000000002B: 33 FF              xor         edi,edi
+  000000000000002D: 48 8D 2D 00 00 00  lea         rbp,[__ImageBase]
+                    00
+  0000000000000034: 33 DB              xor         ebx,ebx
+  0000000000000036: 48 8D 35 00 00 00  lea         rsi,[?buffer@?3??main@@9@9]
+                    00
+  000000000000003D: 48 8B 8C 2B 00 00  mov         rcx,qword ptr ?stringTable@?3??main@@9@9[rbx+rbp]
+                    00 00
+  0000000000000045: 44 8A 01           mov         r8b,byte ptr [rcx]
+  0000000000000048: 45 84 C0           test        r8b,r8b
+  000000000000004B: 74 28              je          0000000000000075
+  000000000000004D: B8 05 00 00 00     mov         eax,5
+  0000000000000052: 2B 84 2B 00 00 00  sub         eax,dword ptr ?sizeTable@?3??main@@9@9[rbx+rbp]
+                    00
+  0000000000000059: 99                 cdq
+  000000000000005A: 2B C2              sub         eax,edx
+  000000000000005C: D1 F8              sar         eax,1
+  000000000000005E: 48 63 D0           movsxd      rdx,eax
+  0000000000000061: 48 03 D6           add         rdx,rsi
+  0000000000000064: 48 FF C1           inc         rcx
+  0000000000000067: 44 88 02           mov         byte ptr [rdx],r8b
+  000000000000006A: 48 FF C2           inc         rdx
+  000000000000006D: 44 8A 01           mov         r8b,byte ptr [rcx]
+  0000000000000070: 45 84 C0           test        r8b,r8b
+  0000000000000073: 75 EF              jne         0000000000000064
+  0000000000000075: 48 8B CE           mov         rcx,rsi
+  0000000000000078: E8 00 00 00 00     call        xstring
+  000000000000007D: FF C7              inc         edi
+  000000000000007F: 48 83 C3 08        add         rbx,8
+  0000000000000083: 83 FF 01           cmp         edi,1
+  0000000000000086: 72 B5              jb          000000000000003D
+  0000000000000088: B1 AA              mov         cl,0AAh
+  000000000000008A: E8 00 00 00 00     call        xfunc
+  000000000000008F: 48 8B 5C 24 30     mov         rbx,qword ptr [rsp+30h]
+  0000000000000094: 33 C0              xor         eax,eax
+  0000000000000096: 48 8B 6C 24 38     mov         rbp,qword ptr [rsp+38h]
+  000000000000009B: 48 8B 74 24 48     mov         rsi,qword ptr [rsp+48h]
+  00000000000000A0: 48 83 C4 20        add         rsp,20h
+  00000000000000A4: 5F                 pop         rdi
+  00000000000000A5: C3                 ret
+
+xfunc:
+  0000000000000000: 66 90              xchg        ax,ax
+  0000000000000002: CC                 int         3
+  0000000000000003: C3                 ret
+
+xstring:
+  0000000000000000: 40 53              push        rbx
+  0000000000000002: 48 83 EC 20        sub         rsp,20h
+  0000000000000006: 8A 01              mov         al,byte ptr [rcx]
+  0000000000000008: 48 8B D9           mov         rbx,rcx
+  000000000000000B: EB 0C              jmp         0000000000000019
+  000000000000000D: 8A C8              mov         cl,al
+  000000000000000F: E8 00 00 00 00     call        xfunc
+  0000000000000014: 48 FF C3           inc         rbx
+  0000000000000017: 8A 03              mov         al,byte ptr [rbx]
+  0000000000000019: 84 C0              test        al,al
+  000000000000001B: 75 F0              jne         000000000000000D
+  000000000000001D: 48 83 C4 20        add         rsp,20h
+  0000000000000021: 5B                 pop         rbx
+  0000000000000022: C3                 ret
+
+  Summary
+
+          60 .chks64
+          20 .data
+          9C .debug$S
+          2F .drectve
+          18 .pdata
+           3 .rdata
+          CD .text$mn
+          1C .xdata

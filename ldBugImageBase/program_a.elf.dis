@@ -1,0 +1,79 @@
+
+program.elf:     file format elf64-x86-64
+
+
+Disassembly of section .text$mn:
+
+0000000000401000 <main>:
+  401000:	48 89 5c 24 08       	mov    QWORD PTR [rsp+0x8],rbx
+  401005:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+  40100a:	48 89 74 24 20       	mov    QWORD PTR [rsp+0x20],rsi
+  40100f:	57                   	push   rdi
+  401010:	48 83 ec 20          	sub    rsp,0x20
+  401014:	cc                   	int3   
+  401015:	8b 05 1d 20 00 00    	mov    eax,DWORD PTR [rip+0x201d]        # 403038 <deadloopvar>
+  40101b:	83 f8 01             	cmp    eax,0x1
+  40101e:	74 f5                	je     401015 <main+0x15>
+  401020:	0f 31                	rdtsc  
+  401022:	48 c1 e2 20          	shl    rdx,0x20
+  401026:	48 0b c2             	or     rax,rdx
+  401029:	74 5d                	je     401088 <main+0x88>
+  40102b:	33 ff                	xor    edi,edi
+  40102d:	48 8d 2d cc ef ff ff 	lea    rbp,[rip+0xffffffffffffefcc]        # 400000 <__ImageBase>
+  401034:	33 db                	xor    ebx,ebx
+  401036:	48 8d 35 ff 1f 00 00 	lea    rsi,[rip+0x1fff]        # 40303c <deadloopvar+0x4>
+  40103d:	48 8b 8c 2b 68 30 40 	mov    rcx,QWORD PTR [rbx+rbp*1+0x403068]
+  401044:	00 
+  401045:	44 8a 01             	mov    r8b,BYTE PTR [rcx]
+  401048:	45 84 c0             	test   r8b,r8b
+  40104b:	74 28                	je     401075 <main+0x75>
+  40104d:	b8 05 00 00 00       	mov    eax,0x5
+  401052:	2b 84 2b 58 30 40 00 	sub    eax,DWORD PTR [rbx+rbp*1+0x403058]
+  401059:	99                   	cdq    
+  40105a:	2b c2                	sub    eax,edx
+  40105c:	d1 f8                	sar    eax,1
+  40105e:	48 63 d0             	movsxd rdx,eax
+  401061:	48 03 d6             	add    rdx,rsi
+  401064:	48 ff c1             	inc    rcx
+  401067:	44 88 02             	mov    BYTE PTR [rdx],r8b
+  40106a:	48 ff c2             	inc    rdx
+  40106d:	44 8a 01             	mov    r8b,BYTE PTR [rcx]
+  401070:	45 84 c0             	test   r8b,r8b
+  401073:	75 ef                	jne    401064 <main+0x64>
+  401075:	48 8b ce             	mov    rcx,rsi
+  401078:	e8 2f 00 00 00       	call   4010ac <xstring>
+  40107d:	ff c7                	inc    edi
+  40107f:	48 83 c3 08          	add    rbx,0x8
+  401083:	83 ff 01             	cmp    edi,0x1
+  401086:	72 b5                	jb     40103d <main+0x3d>
+  401088:	b1 aa                	mov    cl,0xaa
+  40108a:	e8 19 00 00 00       	call   4010a8 <xfunc>
+  40108f:	48 8b 5c 24 30       	mov    rbx,QWORD PTR [rsp+0x30]
+  401094:	33 c0                	xor    eax,eax
+  401096:	48 8b 6c 24 38       	mov    rbp,QWORD PTR [rsp+0x38]
+  40109b:	48 8b 74 24 48       	mov    rsi,QWORD PTR [rsp+0x48]
+  4010a0:	48 83 c4 20          	add    rsp,0x20
+  4010a4:	5f                   	pop    rdi
+  4010a5:	c3                   	ret    
+  4010a6:	66 90                	xchg   ax,ax
+
+00000000004010a8 <xfunc>:
+  4010a8:	66 90                	xchg   ax,ax
+  4010aa:	cc                   	int3   
+  4010ab:	c3                   	ret    
+
+00000000004010ac <xstring>:
+  4010ac:	40 53                	rex push rbx
+  4010ae:	48 83 ec 20          	sub    rsp,0x20
+  4010b2:	8a 01                	mov    al,BYTE PTR [rcx]
+  4010b4:	48 8b d9             	mov    rbx,rcx
+  4010b7:	eb 0c                	jmp    4010c5 <xstring+0x19>
+  4010b9:	8a c8                	mov    cl,al
+  4010bb:	e8 e8 ff ff ff       	call   4010a8 <xfunc>
+  4010c0:	48 ff c3             	inc    rbx
+  4010c3:	8a 03                	mov    al,BYTE PTR [rbx]
+  4010c5:	84 c0                	test   al,al
+  4010c7:	75 f0                	jne    4010b9 <xstring+0xd>
+  4010c9:	48 83 c4 20          	add    rsp,0x20
+  4010cd:	5b                   	pop    rbx
+  4010ce:	c3                   	ret    

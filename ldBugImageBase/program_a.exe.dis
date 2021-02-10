@@ -1,0 +1,88 @@
+Microsoft (R) COFF/PE Dumper Version 14.28.29336.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file program.exe
+
+File Type: EXECUTABLE IMAGE
+
+  0000000140001000: 48 89 5C 24 08     mov         qword ptr [rsp+8],rbx
+  0000000140001005: 48 89 6C 24 10     mov         qword ptr [rsp+10h],rbp
+  000000014000100A: 48 89 74 24 20     mov         qword ptr [rsp+20h],rsi
+  000000014000100F: 57                 push        rdi
+  0000000140001010: 48 83 EC 20        sub         rsp,20h
+  0000000140001014: 90                 nop
+  0000000140001015: 8B 05 E5 1F 00 00  mov         eax,dword ptr [0000000140003000h]
+  000000014000101B: 83 F8 01           cmp         eax,1
+  000000014000101E: 74 F5              je          0000000140001015
+  0000000140001020: 0F 31              rdtsc
+  0000000140001022: 48 C1 E2 20        shl         rdx,20h
+  0000000140001026: 48 0B C2           or          rax,rdx
+  0000000140001029: 74 5D              je          0000000140001088
+  000000014000102B: 33 FF              xor         edi,edi
+  000000014000102D: 48 8D 2D CC EF FF  lea         rbp,[0000000140000000h]
+                    FF
+  0000000140001034: 33 DB              xor         ebx,ebx
+  0000000140001036: 48 8D 35 C7 1F 00  lea         rsi,[0000000140003004h]
+                    00
+  000000014000103D: 48 8B 8C 2B 18 30  mov         rcx,qword ptr [rbx+rbp+0000000000003018h]
+                    00 00
+  0000000140001045: 44 8A 01           mov         r8b,byte ptr [rcx]
+  0000000140001048: 45 84 C0           test        r8b,r8b
+  000000014000104B: 74 28              je          0000000140001075
+  000000014000104D: B8 05 00 00 00     mov         eax,5
+  0000000140001052: 2B 84 2B 10 30 00  sub         eax,dword ptr [rbx+rbp+0000000000003010h]
+                    00
+  0000000140001059: 99                 cdq
+  000000014000105A: 2B C2              sub         eax,edx
+  000000014000105C: D1 F8              sar         eax,1
+  000000014000105E: 48 63 D0           movsxd      rdx,eax
+  0000000140001061: 48 03 D6           add         rdx,rsi
+  0000000140001064: 48 FF C1           inc         rcx
+  0000000140001067: 44 88 02           mov         byte ptr [rdx],r8b
+  000000014000106A: 48 FF C2           inc         rdx
+  000000014000106D: 44 8A 01           mov         r8b,byte ptr [rcx]
+  0000000140001070: 45 84 C0           test        r8b,r8b
+  0000000140001073: 75 EF              jne         0000000140001064
+  0000000140001075: 48 8B CE           mov         rcx,rsi
+  0000000140001078: E8 2F 00 00 00     call        00000001400010AC
+  000000014000107D: FF C7              inc         edi
+  000000014000107F: 48 83 C3 08        add         rbx,8
+  0000000140001083: 83 FF 01           cmp         edi,1
+  0000000140001086: 72 B5              jb          000000014000103D
+  0000000140001088: B1 AA              mov         cl,0AAh
+  000000014000108A: E8 19 00 00 00     call        00000001400010A8
+  000000014000108F: 48 8B 5C 24 30     mov         rbx,qword ptr [rsp+30h]
+  0000000140001094: 33 C0              xor         eax,eax
+  0000000140001096: 48 8B 6C 24 38     mov         rbp,qword ptr [rsp+38h]
+  000000014000109B: 48 8B 74 24 48     mov         rsi,qword ptr [rsp+48h]
+  00000001400010A0: 48 83 C4 20        add         rsp,20h
+  00000001400010A4: 5F                 pop         rdi
+  00000001400010A5: C3                 ret
+  00000001400010A6: CC                 int         3
+  00000001400010A7: CC                 int         3
+  00000001400010A8: 66 90              xchg        ax,ax
+  00000001400010AA: CC                 int         3
+  00000001400010AB: C3                 ret
+  00000001400010AC: 40 53              push        rbx
+  00000001400010AE: 48 83 EC 20        sub         rsp,20h
+  00000001400010B2: 8A 01              mov         al,byte ptr [rcx]
+  00000001400010B4: 48 8B D9           mov         rbx,rcx
+  00000001400010B7: EB 0C              jmp         00000001400010C5
+  00000001400010B9: 8A C8              mov         cl,al
+  00000001400010BB: E8 E8 FF FF FF     call        00000001400010A8
+  00000001400010C0: 48 FF C3           inc         rbx
+  00000001400010C3: 8A 03              mov         al,byte ptr [rbx]
+  00000001400010C5: 84 C0              test        al,al
+  00000001400010C7: 75 F0              jne         00000001400010B9
+  00000001400010C9: 48 83 C4 20        add         rsp,20h
+  00000001400010CD: 5B                 pop         rbx
+  00000001400010CE: C3                 ret
+
+  Summary
+
+        1000 .data
+        1000 .pdata
+        1000 .rdata
+        1000 .reloc
+        1000 .text
