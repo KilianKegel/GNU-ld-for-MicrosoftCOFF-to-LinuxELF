@@ -384,7 +384,7 @@ in the .OBJ module:
 
 The image above is composed out of the files below:
 
-[`BareCode4Window.obj.dmp.txt`](ldBugImageBase/BareCode4Window.obj.dmp.txt)
+[`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp)
 
 [`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis)
 
