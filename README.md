@@ -381,7 +381,7 @@ The compiler uses the relocation type ```IMAGE_REL_AMD64_ADDR32NB```
 http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.html).
 in the .OBJ module:
 
-![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
+![file ldBugImageBase\PNG\DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
 The source code below implements the test scenario: [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/main.c)
 
