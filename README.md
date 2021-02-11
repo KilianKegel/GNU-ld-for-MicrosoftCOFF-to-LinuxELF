@@ -384,12 +384,7 @@ in the .OBJ module:
 
 The image above is composed out of the files below:
 
-[`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp)
-
-[`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis)
-
-[`program_a.exe.dis`](ldBugImageBase/program_a.exe.dis)
-
+[`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp), [`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis), [`program_a.exe.dis`](ldBugImageBase/program_a.exe.dis)
 
 The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
