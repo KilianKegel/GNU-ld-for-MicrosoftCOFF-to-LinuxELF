@@ -369,10 +369,9 @@ In the sample below the RVA (relative virtual address) of 0x140000000 is assigne
 
 ![file ldBugImageBase\PNG\map.png not found](ldBugImageBase/PNG/map.png)
 
-The address of the loaded program image is assigned to ```__ImageBase```, 
-that is the MZ-EXE-Header.
+At program runtime ```__ImageBase``` points to the MZ-EXE-Header.
 
-The references to image-relative addressed symbols (it  depends on program characteristics and optimization settings)
+The references to image-relative addressed symbols 
 that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
 here: https://www.amd.com/system/files/TechDocs/24592.pdf#page=50
 
@@ -382,6 +381,11 @@ http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.
 in the .OBJ module:
 
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
+
+The image above is composed out of the files below:
+[`BareCode4Window.obj.dmp`](BareCode4Window.obj.dmp)
+[`program_a.elf.dis`](program_a.elf.dis)
+[`program_a.exe.dis`](program_a.exe.dis)
 
 The source code below implements the test scenario: [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/main.c)
 
@@ -398,7 +402,7 @@ void xfunc(const char c)
 {
     //
     // GDB: info registers 
-    // GDB: check register CL to hold the expected value 0,1,2 .. A,B,C
+    // GDB: check register CL to hold the expected value
     //
     __debugbreak();
 }
