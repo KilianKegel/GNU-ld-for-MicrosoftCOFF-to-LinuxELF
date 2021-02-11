@@ -383,11 +383,15 @@ in the .OBJ module:
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
 The image above is composed out of the files below:
-[`BareCode4Window.obj.dmp`](BareCode4Window.obj.dmp)
-[`program_a.elf.dis`](program_a.elf.dis)
-[`program_a.exe.dis`](program_a.exe.dis)
 
-The source code below implements the test scenario: [`main.c`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/main.c)
+[`BareCode4Window.obj.dmp`](ldBugImageBase/BareCode4Window.obj.dmp)
+
+[`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis)
+
+[`program_a.exe.dis`](ldBugImageBase/program_a.exe.dis)
+
+
+The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
 ```c
 /*
