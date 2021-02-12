@@ -63,15 +63,13 @@ The compiler uses the relocation type ```IMAGE_REL_AMD64_ADDR32NB```
 http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.html).
 in the .OBJ module:
 
-![file ldBugImageBase\PNG\DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
+![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
 
-The image above is composed out of the files below:
-
-[`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp#L130), [`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis), [`program_a.exe.dis`](ldBugImageBase/program_a.exe.dis)
+The image above is taken from [`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp#L130).
 
 The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
-(The program copies in a predefined string "1234" at centerposition the string "AB". "AB" and its length
+(The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
 were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.)
 
 ```c
@@ -312,9 +310,17 @@ The **GNU ld** needs to get ```__ImageBase``` assigned as a command line paramet
 0x400000 is the load address and is equal to ```__executable_start``` from
 the default **GNU ld** link script https://github.com/KilianKegel/torito-LINK/blob/main/main.c#L1339.
 
+### ```IMAGE_REL_AMD64_ADDR32NB``` + ```__ImageBase``` handling **LINK.EXE** vs. **GNU ld**
 
+**Microsoft LINK.EXE** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
+were a *displacement* to ```__ImageStart```, while a base register is previously initialized
+with ```__ImageStart```.
 
+**GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
+were a *complete 32 bit address*. The a base register is assumed to be initialized previously to ZERO.
 
+Doing so **GNU ld**-linked the programs can only run in a 32Bit address space.
+Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
 
 
