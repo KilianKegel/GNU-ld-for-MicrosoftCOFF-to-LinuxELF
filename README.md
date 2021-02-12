@@ -310,14 +310,14 @@ The **GNU ld** needs to get ```__ImageBase``` assigned as a command line paramet
 0x400000 is the load address and is equal to ```__executable_start``` from
 the default **GNU ld** link script https://github.com/KilianKegel/torito-LINK/blob/main/main.c#L1339.
 
-### ```IMAGE_REL_AMD64_ADDR32NB``` + ```__ImageBase``` handling **LINK.EXE** vs. **GNU ld**
+### **Microsoft LINK.EXE** vs. **GNU ld**
 
 **Microsoft LINK.EXE** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
-were a *displacement* to ```__ImageStart```, while a base register is previously initialized
+were a *displacement* to ```__ImageStart```, while the base register is previously initialized
 with ```__ImageStart```.
 
 **GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
-were a *complete 32 bit address*. The a base register is assumed to be initialized previously to ZERO.
+were a *complete 32 bit address*. The base register is assumed to be initialized previously to ZERO.
 
 Doing so **GNU ld**-linked the programs can only run in a 32Bit address space.
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
