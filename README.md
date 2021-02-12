@@ -163,18 +163,30 @@ Stepping through the program in the windows debuggger
 00007FF6576C100A  mov         qword ptr [rsp+20h],rsi  
 00007FF6576C100F  push        rdi  
 00007FF6576C1010  sub         rsp,20h  
-00007FF6576C1014  nop                                                                           --> BREAKORNOP
-00007FF6576C1015  mov         eax,dword ptr [7FF6576C3000h]                                     --> while (1 == deadloopvar);
+
+--> BREAKORNOP
+00007FF6576C1014  nop
+
+--> while (1 == deadloopvar);
+00007FF6576C1015  mov         eax,dword ptr [7FF6576C3000h]
 00007FF6576C101B  cmp         eax,1
 00007FF6576C101E  je          00007FF6576C1015
-00007FF6576C1020  rdtsc                                                                         -->  tsc = __rdtsc();
-00007FF6576C1022  shl         rdx,20h                                                           --> if (tsc/*TSC is never, never 0*/)
+
+-->  tsc = __rdtsc();
+00007FF6576C1020  rdtsc
+
+--> if (tsc/*TSC is never, never 0*/)
+00007FF6576C1022  shl         rdx,20h
 00007FF6576C1026  or          rax,rdx  
 00007FF6576C1029  je          00007FF6576C1088  
-00007FF6576C102B  xor         edi,edi  
-00007FF6576C102D  lea         rbp,[7FF6576C0000h]                                               --> load __ImageBase to EBP
 
-    0x00007FF6576C0000  4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00  MZ..........ÿÿ..       --> MZ-EXE header at Windows runtime
+00007FF6576C102B  xor         edi,edi  
+    
+--> load __ImageBase to EBP
+00007FF6576C102D  lea         rbp,[7FF6576C0000h]
+
+--> MZ-EXE header at Windows runtime
+    0x00007FF6576C0000  4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00  MZ..........ÿÿ..       
     0x00007FF6576C0010  b8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00  ¸.......@.......
     0x00007FF6576C0020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
     0x00007FF6576C0030  00 00 00 00 00 00 00 00 00 00 00 00 b8 00 00 00  ............¸...
@@ -184,7 +196,9 @@ Stepping through the program in the windows debuggger
     0x00007FF6576C0070  6d 6f 64 65 2e 0d 0d 0a 24 00 00 00 00 00 00 00  mode....$.......
 
 00007FF6576C1034  xor         ebx,ebx  
-00007FF6576C1036  lea         rsi,[7FF6576C3004h]                                               --> load address of buffer
+
+--> load address of buffer
+00007FF6576C1036  lea         rsi,[7FF6576C3004h]
 
     0x00007FF6576C3004  31 32 33 34 00 00 00 00 00 00 00 00 03 00 00 00  1234............
     0x00007FF6576C3014  00 00 00 00 00 20 6c 57 f6 7f 00 00 00 00 00 00  ..... lWö.......
@@ -195,7 +209,8 @@ Stepping through the program in the windows debuggger
     0x00007FF6576C3064  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
     0x00007FF6576C3074  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
 
-00007FF6576C103D  mov         rcx,qword ptr [rbx+rbp+3018h]                                     --> load address of STRING0 in stringTable
+--> load address of STRING0 in stringTable
+00007FF6576C103D  mov         rcx,qword ptr [rbx+rbp+3018h]
 
     RCX 00007FF6576C2000	
 
@@ -212,7 +227,9 @@ Stepping through the program in the windows debuggger
 00007FF6576C1048  test        r8b,r8b  
 00007FF6576C104B  je          00007FF6576C1075  
 00007FF6576C104D  mov         eax,5  
-00007FF6576C1052  sub         eax,dword ptr [rbx+rbp+3010h]                                     --> load sizeof(STRING0) from sizeTable
+
+--> load sizeof(STRING0) from sizeTable
+00007FF6576C1052  sub         eax,dword ptr [rbx+rbp+3010h]
 
     [rbx+rbp+3010h] 00007FF6576C3010
     0x00007FF6576C3010  03 00 00 00 00 00 00 00 00 20 6c 57 f6 7f 00 00  ......... lWö...
@@ -229,7 +246,9 @@ Stepping through the program in the windows debuggger
 00007FF6576C105E  movsxd      rdx,eax  
 00007FF6576C1061  add         rdx,rsi  
 00007FF6576C1064  inc         rcx  
-00007FF6576C1067  mov         byte ptr [rdx],r8b                                                --> write "AB" to buffer "1234" @ "23"
+
+--> write "AB" to buffer "1234" @ "23"
+00007FF6576C1067  mov         byte ptr [rdx],r8b
 
     0x00007FF6576C3004  31 41 33 34 00 00 00 00 00 00 00 00 03 00 00 00  1A34............ 
     0x00007FF6576C3014  00 00 00 00 00 20 6c 57 f6 7f 00 00 00 00 00 00  ..... lWö.......
