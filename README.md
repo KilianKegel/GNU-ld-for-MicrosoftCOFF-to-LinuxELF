@@ -154,6 +154,7 @@ int main(int argc, char** argv)
     return 0;
 }
 ```
+[full listing](ldBugImageBase/main.c)
 
 Stepping through the program in the windows debuggger makes more clear, what the program is expected to
 do on machine level -- and what's going wrong in Linux:
@@ -284,20 +285,35 @@ the default **GNU ld** link script https://github.com/KilianKegel/torito-LINK/bl
 **Microsoft LINK.EXE** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
 were a *displacement* to ```__ImageStart```, while the base register is previously initialized
 with ```__ImageStart```.
-
-**GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
-were a *complete 32 bit address*. The base register (here ```RBP```) is assumed to be initialized previously to ZERO.
 ```
         .
         .
         .
-    mov rcx,qword ptr [rbx+rbp+3018h]
+    mov rcx,qword ptr [rbx+rbp+3018h]       ; RBP == __ImageBase, RBX == 0 -> index 0
+        .                                   ; 0x3018 displacement of STRING0 in stringTable
         .
     sub eax,dword ptr [rbx+rbp+3010h]
         .
         .
         .
 ```
+**GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
+were a *complete 32 bit address*. The base register (here ```RBP```) is assumed to be initialized previously to ZERO.
+```
+        .
+        .
+        .
+    mov rcx,qword ptr [rbx+rbp+403068h]     ; RBP == 0, RBX == 0 -> index 0
+        .                                   ; 0x403068 load address of STRING0 in stringTable in Linux
+        .
+    sub eax,dword ptr [rbx+rbp+403058h]
+        .
+        .
+        .
+```
+![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)
+
+
 Doing so **GNU ld**-linked programs can only run in the lower half 32Bit address space.
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
