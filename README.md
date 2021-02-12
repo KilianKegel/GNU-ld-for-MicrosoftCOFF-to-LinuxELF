@@ -70,6 +70,8 @@ The image above is composed out of the files below:
 [`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp#L130), [`program_a.elf.dis`](ldBugImageBase/program_a.elf.dis), [`program_a.exe.dis`](ldBugImageBase/program_a.exe.dis)
 
 The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
+(The program copies in a predefined string "1234" at centerposition the string "AB". "AB" and its length
+were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.)
 
 ```c
 /*
