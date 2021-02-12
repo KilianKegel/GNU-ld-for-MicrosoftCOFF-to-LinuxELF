@@ -155,7 +155,8 @@ int main(int argc, char** argv)
 }
 ```
 
-Stepping through the program in the windows debuggger 
+Stepping through the program in the windows debuggger makes more clear, what the program is expected to
+do on machine level -- and what's going wrong in Linux:
 
 ```
 00007FF6576C1000  mov         qword ptr [rsp+8],rbx  
@@ -320,7 +321,17 @@ with ```__ImageStart```.
 
 **GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
 were a *complete 32 bit address*. The base register is assumed to be initialized previously to ZERO.
-
+```
+        .
+        .
+        .
+    mov rcx,qword ptr [rbx+rbp+3018h]
+        .
+    sub eax,dword ptr [rbx+rbp+3010h]
+        .
+        .
+        .
+```
 Doing so **GNU ld**-linked programs can only run in a 32Bit address space.
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
