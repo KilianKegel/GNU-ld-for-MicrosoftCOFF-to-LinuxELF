@@ -39,7 +39,7 @@ To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.ba
 # Image-relative addressing bug
 
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
-of the Microsoft C compiler may use the ```__ImageBase``` relative addressing method,
+of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
 
 ## General description
