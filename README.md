@@ -272,7 +272,7 @@ do on machine level -- and what's going wrong in Linux:
 As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
 for the adressing scheme, that the linker artificially injects at link time.
 
-The **GNU ld** needs to get ```__ImageBase``` assigned as a command line parameter:
+The **GNU ld** needs ```__ImageBase``` to get  assigned as a command line parameter:
 ```
 --defsym=__ImageBase=0x400000
 ```
