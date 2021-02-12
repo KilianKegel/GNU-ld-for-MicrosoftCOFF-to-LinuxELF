@@ -157,7 +157,6 @@ int main(int argc, char** argv)
 
 Stepping through the program in the windows debuggger makes more clear, what the program is expected to
 do on machine level -- and what's going wrong in Linux:
-
 ```
 00007FF6576C1000  mov         qword ptr [rsp+8],rbx  
 00007FF6576C1005  mov         qword ptr [rsp+10h],rbp  
@@ -260,46 +259,13 @@ do on machine level -- and what's going wrong in Linux:
     0x00007FF6576C3064  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
     0x00007FF6576C3074  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
   
-00007FF6576C106A  inc         rdx  
-00007FF6576C106D  mov         r8b,byte ptr [rcx]  
-00007FF6576C1070  test        r8b,r8b  
-00007FF6576C1073  jne         00007FF6576C1064  
-00007FF6576C1075  mov         rcx,rsi  
-00007FF6576C1078  call        00007FF6576C10AC  
-00007FF6576C107D  inc         edi  
-00007FF6576C107F  add         rbx,8  
-00007FF6576C1083  cmp         edi,1  
-00007FF6576C1086  jb          00007FF6576C103D  
-00007FF6576C1088  mov         cl,0AAh  
-00007FF6576C108A  call        00007FF6576C10A8  
-00007FF6576C108F  mov         rbx,qword ptr [rsp+30h]  
-00007FF6576C1094  xor         eax,eax  
-00007FF6576C1096  mov         rbp,qword ptr [rsp+38h]  
-00007FF6576C109B  mov         rsi,qword ptr [rsp+48h]  
-00007FF6576C10A0  add         rsp,20h  
-00007FF6576C10A4  pop         rdi  
-00007FF6576C10A5  ret  
-00007FF6576C10A6  int         3  
-00007FF6576C10A7  int         3  
-00007FF6576C10A8  xchg        ax,ax  
-00007FF6576C10AA  int         3  
-00007FF6576C10AB  ret  
-00007FF6576C10AC  push        rbx  
-00007FF6576C10AE  sub         rsp,20h  
-00007FF6576C10B2  mov         al,byte ptr [rcx]  
-00007FF6576C10B4  mov         rbx,rcx  
-00007FF6576C10B7  jmp         00007FF6576C10C5  
-00007FF6576C10B9  mov         cl,al  
-00007FF6576C10BB  call        00007FF6576C10A8  
-00007FF6576C10C0  inc         rbx  
-00007FF6576C10C3  mov         al,byte ptr [rbx]  
-00007FF6576C10C5  test        al,al  
-00007FF6576C10C7  jne         00007FF6576C10B9  
-00007FF6576C10C9  add         rsp,20h  
-00007FF6576C10CD  pop         rbx  
+        .
+        .
+        .
+
 00007FF6576C10CE  ret
 ```
-
+[full listing](ldBugImageBase/PNG/TipoeThroughWindows.txt)
 ## Linking for Linux
 
 As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
@@ -320,7 +286,7 @@ were a *displacement* to ```__ImageStart```, while the base register is previous
 with ```__ImageStart```.
 
 **GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
-were a *complete 32 bit address*. The base register is assumed to be initialized previously to ZERO.
+were a *complete 32 bit address*. The base register (here ```RBP```) is assumed to be initialized previously to ZERO.
 ```
         .
         .
@@ -332,7 +298,7 @@ were a *complete 32 bit address*. The base register is assumed to be initialized
         .
         .
 ```
-Doing so **GNU ld**-linked programs can only run in a 32Bit address space.
+Doing so **GNU ld**-linked programs can only run in the lower half 32Bit address space.
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
 
