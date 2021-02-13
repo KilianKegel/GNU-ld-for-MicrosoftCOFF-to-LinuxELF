@@ -312,7 +312,12 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
 ```
 ![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)
 [complete listing](ldBugImageBase/PNG/DiffELFEXE.htm)
+
+<html>
+  <body>
 <a href="ldBugImageBase/PNG/DiffELFEXE.htm" target="_top">complete listing</a>
+  </body>
+</html>
 
 Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space,
 and ```__ImageBase```has to be initialized to zero.\
