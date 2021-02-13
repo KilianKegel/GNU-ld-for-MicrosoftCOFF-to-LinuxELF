@@ -313,12 +313,562 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
 ![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)
 [complete listing](ldBugImageBase/PNG/DiffELFEXE.htm)
 
-<html>
-  <body>
-<a href="ldBugImageBase/PNG/DiffELFEXE.htm" target="_top">complete listing</a>
-  </body>
-</html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
 
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFECEC; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFECEC; }
+td.TextItemSigDel { color: #000000; background-color: #FFECEC; text-decoration: line-through; }
+</style>
+<title>Text Compare</title>
+</head>
+<body>
+Text Compare<br>
+Produced: 2021-02-12 05:26:20 AM<br>
+&nbsp; &nbsp;
+<br>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br>
+Left file: A:\GNU-ld-for-MicrosoftCOFF-to-LinuxELF2\ldBugImageBase\program_a.elf.dis &nbsp;
+<br>
+Right file: A:\GNU-ld-for-MicrosoftCOFF-to-LinuxELF2\ldBugImageBase\program_a.exe.dis &nbsp;
+<br>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tbody><tr class="SectionBegin">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">-+</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">Microsoft</span> <span class="TextSegSigDiff">(R)</span> <span class="TextSegSigDiff">COFF/PE</span> <span class="TextSegSigDiff">Dumper</span> <span class="TextSegSigDiff">Version</span> <span class="TextSegSigDiff">14.28.29336.0</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">Copyright</span> <span class="TextSegSigDiff">(C)</span> <span class="TextSegSigDiff">Microsoft</span> <span class="TextSegSigDiff">Corporation.</span>&nbsp; <span class="TextSegSigDiff">All</span> <span class="TextSegSigDiff">rights</span> <span class="TextSegSigDiff">reserved.</span></td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSigMod">p<span class="TextSegSigDiff">rogram.elf:</span>&nbsp; &nbsp;&nbsp; file <span class="TextSegSigDiff">f</span><span class="TextSegSigDiff">o</span><span class="TextSegSigDiff">r</span><span class="TextSegSigDiff">mat</span> e<span class="TextSegSigDiff">lf64-x86-64</span></td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">Dum</span>p <span class="TextSegSigDiff">o</span><span class="TextSegSigDiff">f</span> file <span class="TextSegSigDiff">program.</span>e<span class="TextSegSigDiff">xe</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSigMod">&nbsp;</td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">File</span> <span class="TextSegSigDiff">Type:</span> <span class="TextSegSigDiff">EXECUTABLE</span> <span class="TextSegSigDiff">IMAGE</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSigMod"><span class="TextSegSigDiff">Disassembly</span> <span class="TextSegSigDiff">of</span> <span class="TextSegSigDiff">section</span> <span class="TextSegSigDiff">.text$mn:</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSigMod"><span class="TextSegSigDiff">0000000000401000</span> <span class="TextSegSigDiff">&lt;main&gt;:</span></td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1000:&nbsp; &nbsp; &nbsp;&nbsp; 48 89 5c 24 08&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>8],rbx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1000: 48 89 5C 24 08&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; qword ptr [rsp+8],rbx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1005:&nbsp; &nbsp; &nbsp;&nbsp; 48 89 6c 24 10&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>10],rbp</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1005: 48 89 6C 24 10&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; qword ptr [rsp+10<span class="TextSegSigDiff">h</span>],rbp</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>100a:&nbsp; &nbsp; &nbsp;&nbsp; 48 89 74 24 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>20],rsi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>100A: 48 89 74 24 20&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; qword ptr [rsp+20<span class="TextSegSigDiff">h</span>],rsi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0100f:&nbsp;
+ &nbsp; &nbsp;&nbsp; 57&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; push&nbsp;&nbsp; rdi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0100F: 57&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; push&nbsp; &nbsp; &nbsp; &nbsp; rdi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1010:&nbsp; &nbsp; &nbsp;&nbsp; 48 83 ec 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sub&nbsp; &nbsp; rsp,<span class="TextSegSigDiff">0x</span>20</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1010: 48 83 EC 20&nbsp; &nbsp; &nbsp; &nbsp; sub&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsp,20<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01014:&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">cc</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">int3</span>&nbsp; &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01014: <span class="TextSegSigDiff">90</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">nop</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01015:&nbsp; &nbsp; &nbsp;&nbsp; 8b 05 1<span class="TextSegSigDiff">d</span> <span class="TextSegSigDiff">2</span>0 0<span class="TextSegSigDiff">0</span> 00&nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; eax,DWORD PTR [<span class="TextSegSigDiff">rip+</span><span class="TextSegSigDiff">0x2</span>01<span class="TextSegSigDiff">d]</span>&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">#</span> 40<span class="TextSegSigDiff">3</span><span class="TextSegSigDiff">038</span> <span class="TextSegSigDiff">&lt;deadloopvar&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01015: 8B 0<span class="TextSegSigDiff">5</span> <span class="TextSegSigDiff">E</span>5 1<span class="TextSegSigDiff">F</span> 00 00&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,dword ptr [<span class="TextSegSigDiff">000000</span>0140<span class="TextSegSigDiff">003000h]</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>101b:&nbsp; &nbsp; &nbsp;&nbsp; 83 f8 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cmp&nbsp; &nbsp; eax,<span class="TextSegSigDiff">0x</span>1</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>101B: 83 F8 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,1</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0101e:&nbsp; &nbsp; &nbsp;&nbsp; 74 f5&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp;&nbsp; 40<span class="TextSegSigDiff">1</span>01<span class="TextSegSigDiff">5</span> <span class="TextSegSigDiff">&lt;main+0x</span>15<span class="TextSegSigDiff">&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0101E: 74 F5&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">00000001</span>40<span class="TextSegSigDiff">0</span>01<span class="TextSegSigDiff">0</span>15</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1020:&nbsp; &nbsp; &nbsp;&nbsp; 0f 31&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rdtsc &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1020: 0F 31&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rdtsc</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1022:&nbsp; &nbsp; &nbsp;&nbsp; 48 c1 e2 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; shl&nbsp; &nbsp; rdx,<span class="TextSegSigDiff">0x</span>20</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1022: 48 C1 E2 20&nbsp; &nbsp; &nbsp; &nbsp; shl&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rdx,20<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01026:&nbsp; &nbsp; &nbsp;&nbsp; 48 0b c2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">or</span>&nbsp; &nbsp;&nbsp; rax,rdx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01026: 48 0B C2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">or</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rax,rdx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1029:&nbsp; &nbsp; &nbsp;&nbsp; 74 5d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">4</span>01088 <span class="TextSegSigDiff">&lt;main+0x88&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1029: 74 5D&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">00000001400</span>01088</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0102b:&nbsp;
+ &nbsp; &nbsp;&nbsp; 33 ff&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; xor&nbsp; &nbsp; edi,edi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0102B: 33 FF&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xor&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; edi,edi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0102d:&nbsp; &nbsp; &nbsp;&nbsp; 48 8d 2d cc ef ff <span class="TextSegSigDiff">ff</span>&nbsp; &nbsp; lea&nbsp; &nbsp; rbp,[<span class="TextSegSigDiff">rip+</span><span class="TextSegSigDiff">0xffffffffffffefcc]</span>&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">#</span> <span class="TextSegSigDiff">4</span>00000 <span class="TextSegSigDiff">&lt;__ImageBase&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0102D: 48 8D 2D CC EF FF&nbsp; lea&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbp,[<span class="TextSegSigDiff">00000001</span><span class="TextSegSigDiff">400</span>00000<span class="TextSegSigDiff">h]</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">FF</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01034:&nbsp;
+ &nbsp; &nbsp;&nbsp; 33 db&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; xor&nbsp; &nbsp; ebx,ebx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01034: 33 DB&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xor&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ebx,ebx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1036:&nbsp; &nbsp; &nbsp;&nbsp; 48 8d 35 <span class="TextSegSigDiff">ff</span> 1f 00 <span class="TextSegSigDiff">00</span>&nbsp; &nbsp; lea&nbsp; &nbsp; rsi,[<span class="TextSegSigDiff">rip+</span><span class="TextSegSigDiff">0x1fff]</span>&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">#</span> <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>30<span class="TextSegSigDiff">3c</span> <span class="TextSegSigDiff">&lt;deadloopvar+0x4&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1036: 48 8D 35 <span class="TextSegSigDiff">C7</span> 1F 00&nbsp; lea&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsi,[<span class="TextSegSigDiff">0000000</span><span class="TextSegSigDiff">1</span><span class="TextSegSigDiff">4000</span>30<span class="TextSegSigDiff">0</span><span class="TextSegSigDiff">4h]</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">00</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0103d:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b 8c 2b <span class="TextSegSigDiff">6</span>8 30 <span class="TextSegSigDiff">40</span>&nbsp; &nbsp; mov&nbsp; &nbsp; rcx,QWORD PTR [rbx+rbp<span class="TextSegSigDiff">*1</span>+<span class="TextSegSigDiff">0x4</span>030<span class="TextSegSigDiff">68</span>]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0103D: 48 8B 8C 2B <span class="TextSegSigDiff">1</span>8 30&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rcx,qword ptr [rbx+rbp+<span class="TextSegSigDiff">00000000000</span>030<span class="TextSegSigDiff">18h</span>]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">01044:</span>&nbsp; &nbsp; &nbsp;&nbsp; 00&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">0</span><span class="TextSegSigDiff">0</span> 00</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01045:&nbsp;
+ &nbsp; &nbsp;&nbsp; 44 8a 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; mov&nbsp; &nbsp; r8b,BYTE PTR [rcx]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01045: 44 8A 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r8b,byte ptr [rcx]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01048:&nbsp; &nbsp; &nbsp;&nbsp; 45 84 c0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test&nbsp;&nbsp; r8b,r8b</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01048: 45 84 C0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; test&nbsp; &nbsp; &nbsp; &nbsp; r8b,r8b</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>104b:&nbsp; &nbsp; &nbsp;&nbsp; 74 28&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">4</span>01075 <span class="TextSegSigDiff">&lt;main+0x75&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>104B: 74 28&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">je</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">00000001400</span>01075</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>104d:&nbsp; &nbsp; &nbsp;&nbsp; b8 05 00 00 00&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; eax,<span class="TextSegSigDiff">0x</span>5</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>104D: B8 05 00 00 00&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,5</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1052:&nbsp; &nbsp; &nbsp;&nbsp; 2b 84 2b <span class="TextSegSigDiff">58</span> 30 <span class="TextSegSigDiff">4</span>0 <span class="TextSegSigDiff">00</span>&nbsp; &nbsp; sub&nbsp; &nbsp; eax,DWORD PTR [rbx+rbp<span class="TextSegSigDiff">*1</span>+<span class="TextSegSigDiff">0x4</span>030<span class="TextSegSigDiff">58</span>]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1052: 2B 84 2B <span class="TextSegSigDiff">10</span> 30 <span class="TextSegSigDiff">0</span>0&nbsp; sub&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,dword ptr [rbx+rbp+<span class="TextSegSigDiff">00000000000</span>030<span class="TextSegSigDiff">10h</span>]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">00</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01059:&nbsp;
+ &nbsp; &nbsp;&nbsp; 99&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; cdq&nbsp;&nbsp; &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01059: 99&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cdq</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0105a:&nbsp;
+ &nbsp; &nbsp;&nbsp; 2b c2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; sub&nbsp; &nbsp; eax,edx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0105A: 2B C2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sub&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,edx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0105c:&nbsp;
+ &nbsp; &nbsp;&nbsp; d1 f8&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; sar&nbsp; &nbsp; eax,1</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0105C: D1 F8&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sar&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,1</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0105e:&nbsp; &nbsp; &nbsp;&nbsp; 48 63 d0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; movsxd rdx,eax</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0105E: 48 63 D0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; movsxd&nbsp; &nbsp; &nbsp; rdx,eax</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01061:&nbsp; &nbsp; &nbsp;&nbsp; 48 03 d6&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; add&nbsp; &nbsp; rdx,rsi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01061: 48 03 D6&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; add&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rdx,rsi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01064:&nbsp; &nbsp; &nbsp;&nbsp; 48 ff c1&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inc&nbsp; &nbsp; rcx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01064: 48 FF C1&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; inc&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rcx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01067:&nbsp;
+ &nbsp; &nbsp;&nbsp; 44 88 02&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; mov&nbsp; &nbsp; BYTE PTR [rdx],r8b</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01067: 44 88 02&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; byte ptr [rdx],r8b</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0106a:&nbsp; &nbsp; &nbsp;&nbsp; 48 ff c2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inc&nbsp; &nbsp; rdx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0106A: 48 FF C2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; inc&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rdx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0106d:&nbsp;
+ &nbsp; &nbsp;&nbsp; 44 8a 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; mov&nbsp; &nbsp; r8b,BYTE PTR [rcx]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0106D: 44 8A 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r8b,byte ptr [rcx]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01070:&nbsp; &nbsp; &nbsp;&nbsp; 45 84 c0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test&nbsp;&nbsp; r8b,r8b</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01070: 45 84 C0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; test&nbsp; &nbsp; &nbsp; &nbsp; r8b,r8b</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1073:&nbsp; &nbsp; &nbsp;&nbsp; 75 ef&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; jne&nbsp; &nbsp; <span class="TextSegSigDiff">4</span>01064 <span class="TextSegSigDiff">&lt;main+0x64&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1073: 75 EF&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jne&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">00000001400</span>01064</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01075:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b ce&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; rcx,rsi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01075: 48 8B CE&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rcx,rsi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01078:&nbsp; &nbsp; &nbsp;&nbsp; e8 2f 00 00 00&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; call&nbsp;&nbsp; <span class="TextSegSigDiff">4</span>010ac <span class="TextSegSigDiff">&lt;xstring&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01078: E8 2F 00 00 00&nbsp; &nbsp;&nbsp; call&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">00000001400</span>010AC</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0107d:&nbsp; &nbsp; &nbsp;&nbsp; ff c7&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; inc&nbsp; &nbsp; edi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0107D: FF C7&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inc&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; edi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>107f:&nbsp; &nbsp; &nbsp;&nbsp; 48 83 c3 08&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; add&nbsp; &nbsp; rbx,<span class="TextSegSigDiff">0x</span>8</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>107F: 48 83 C3 08&nbsp; &nbsp; &nbsp; &nbsp; add&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbx,8</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1083:&nbsp; &nbsp; &nbsp;&nbsp; 83 ff 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cmp&nbsp; &nbsp; edi,<span class="TextSegSigDiff">0x</span>1</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1083: 83 FF 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; edi,1</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1086:&nbsp; &nbsp; &nbsp;&nbsp; 72 b5&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">jb</span>&nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">4</span>0103d <span class="TextSegSigDiff">&lt;main+0x3d&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1086: 72 B5&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">jb</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">00000001400</span>0103D</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1088:&nbsp; &nbsp; &nbsp;&nbsp; b1 aa&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; cl,0<span class="TextSegSigDiff">x</span>aa</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1088: B1 AA&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cl,0AA<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>0108a:&nbsp; &nbsp; &nbsp;&nbsp; e8 19 00 00 00&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; call&nbsp;&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10a8 <span class="TextSegSigDiff">&lt;xfunc&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>0108A: E8 19 00 00 00&nbsp; &nbsp;&nbsp; call&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">000000014000</span>10A8</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>108f:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b 5c 24 30&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; rbx,QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>30]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>108F: 48 8B 5C 24 30&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbx,qword ptr [rsp+30<span class="TextSegSigDiff">h</span>]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>01094:&nbsp;
+ &nbsp; &nbsp;&nbsp; 33 c0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; xor&nbsp; &nbsp; eax,eax</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>01094: 33 C0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xor&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; eax,eax</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>1096:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b 6c 24 38&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; rbp,QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>38]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>1096: 48 8B 6C 24 38&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbp,qword ptr [rsp+38<span class="TextSegSigDiff">h</span>]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>109b:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b 74 24 48&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; rsi,QWORD PTR [rsp+<span class="TextSegSigDiff">0x</span>48]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>109B: 48 8B 74 24 48&nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsi,qword ptr [rsp+48<span class="TextSegSigDiff">h</span>]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10a0:&nbsp; &nbsp; &nbsp;&nbsp; 48 83 c4 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; add&nbsp; &nbsp; rsp,<span class="TextSegSigDiff">0x</span>20</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10A0: 48 83 C4 20&nbsp; &nbsp; &nbsp; &nbsp; add&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsp,20<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010a4:&nbsp;
+ &nbsp; &nbsp;&nbsp; 5f&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; pop&nbsp; &nbsp; rdi</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010A4: 5F&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pop&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rdi</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010a5:&nbsp;
+ &nbsp; &nbsp;&nbsp; c3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; ret&nbsp;&nbsp; &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010A5: C3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ret</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010a6:&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">66</span> <span class="TextSegSigDiff">90</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">xchg</span>&nbsp;&nbsp; <span class="TextSegSigDiff">ax,ax</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010A6: <span class="TextSegSigDiff">CC</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">int</span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">3</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSigMod">0000000<span class="TextSegSigDiff">0</span>00<span class="TextSegSigDiff">4</span>010a<span class="TextSegSigDiff">8</span> <span class="TextSegSigDiff">&lt;xfunc&gt;:</span></td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod">&nbsp; 0000000<span class="TextSegSigDiff">14</span>00010A<span class="TextSegSigDiff">7:</span> <span class="TextSegSigDiff">CC</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">i</span><span class="TextSegSigDiff">nt</span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">3</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010a8:&nbsp;
+ &nbsp; &nbsp;&nbsp; 66 90&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; xchg&nbsp;&nbsp; ax,ax</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010A8: 66 90&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xchg&nbsp; &nbsp; &nbsp; &nbsp; ax,ax</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10aa:&nbsp; &nbsp; &nbsp;&nbsp; cc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int<span class="TextSegSigDiff">3</span>&nbsp;&nbsp; </td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10AA: CC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">3</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4010ab:</span>&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">c3</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">ret</span>&nbsp;&nbsp; &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSigMod">0000000000<span class="TextSegSigDiff">40</span>10ac <span class="TextSegSigDiff">&lt;xs</span><span class="TextSegSigDiff">tring&gt;:</span></td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod">&nbsp; 0000000<span class="TextSegSigDiff">14</span>00010A<span class="TextSegSigDiff">B:</span> C<span class="TextSegSigDiff">3</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">ret</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010ac:&nbsp; &nbsp; &nbsp;&nbsp; 40 53&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">rex</span> push rbx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010AC: 40 53&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; push&nbsp; &nbsp; &nbsp; &nbsp; rbx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10ae:&nbsp; &nbsp; &nbsp;&nbsp; 48 83 ec 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sub&nbsp; &nbsp; rsp,<span class="TextSegSigDiff">0x</span>20</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10AE: 48 83 EC 20&nbsp; &nbsp; &nbsp; &nbsp; sub&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsp,20<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010b2:&nbsp;
+ &nbsp; &nbsp;&nbsp; 8a 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; al,BYTE PTR [rcx]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010B2: 8A 01&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; al,byte ptr [rcx]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010b4:&nbsp; &nbsp; &nbsp;&nbsp; 48 8b d9&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; rbx,rcx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010B4: 48 8B D9&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbx,rcx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10b7:&nbsp; &nbsp; &nbsp;&nbsp; eb 0c&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; jmp&nbsp; &nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10c5 <span class="TextSegSigDiff">&lt;xstring+0x19&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10B7: EB 0C&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jmp&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">000000014000</span>10C5</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010b9:&nbsp;
+ &nbsp; &nbsp;&nbsp; 8a c8&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; cl,al</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010B9: 8A C8&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cl,al</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010bb:&nbsp; &nbsp; &nbsp;&nbsp; e8 e8 ff ff ff&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; call&nbsp;&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10a8 <span class="TextSegSigDiff">&lt;xfunc&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010BB: E8 E8 FF FF FF&nbsp; &nbsp;&nbsp; call&nbsp; &nbsp; &nbsp; &nbsp; <span class="TextSegSigDiff">000000014000</span>10A8</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010c0:&nbsp; &nbsp; &nbsp;&nbsp; 48 ff c3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inc&nbsp; &nbsp; rbx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010C0: 48 FF C3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; inc&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbx</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010c3:&nbsp;
+ &nbsp; &nbsp;&nbsp; 8a 03&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; mov&nbsp; &nbsp; al,BYTE PTR [rbx]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010C3: 8A 03&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mov&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; al,byte ptr [rbx]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010c5:&nbsp;
+ &nbsp; &nbsp;&nbsp; 84 c0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; test&nbsp;&nbsp; al,al</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010C5: 84 C0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test&nbsp; &nbsp; &nbsp; &nbsp; al,al</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10c7:&nbsp;
+ &nbsp; &nbsp;&nbsp; 75 f0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;&nbsp; jne&nbsp; &nbsp; 4010b9 <span class="TextSegSigDiff">&lt;xstring+0xd&gt;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10C7: 75 F0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jne&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">00000001</span>40<span class="TextSegSigDiff">00</span>10B9</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span><span class="TextSegSigDiff">0</span>10c9:&nbsp; &nbsp; &nbsp;&nbsp; 48 83 c4 20&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; add&nbsp; &nbsp; rsp,<span class="TextSegSigDiff">0x</span>20</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">000000014000</span>10C9: 48 83 C4 20&nbsp; &nbsp; &nbsp; &nbsp; add&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rsp,20<span class="TextSegSigDiff">h</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010cd:&nbsp;
+ &nbsp; &nbsp;&nbsp; 5b&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; pop&nbsp; &nbsp; rbx</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010CD: 5B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pop&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rbx</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">4</span>010ce:&nbsp;
+ &nbsp; &nbsp;&nbsp; c3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; ret&nbsp;&nbsp; &nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">00000001400</span>010CE: C3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ret</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">-+</td>
+<td class="TextItemSigMod">&nbsp; <span class="TextSegSigDiff">Summary</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">-+</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">1000</span> <span class="TextSegSigDiff">.data</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">1000</span> <span class="TextSegSigDiff">.pdata</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">1000</span> <span class="TextSegSigDiff">.rdata</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">1000</span> <span class="TextSegSigDiff">.reloc</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegSigDiff">1000</span> <span class="TextSegSigDiff">.text</span></td>
+</tr>
+</tbody></table>
+<br>
+
+
+</body></html>
 Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space,
 and ```__ImageBase```has to be initialized to zero.\
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
