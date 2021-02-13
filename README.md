@@ -311,7 +311,7 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
         .
 ```
 ![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)\
-![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.pdf)\
+[complete diff view](ldBugImageBase/PNG/DiffELFEXE.pdf)\
 [complete .ELF disassembly](ldBugImageBase/program_a.elf.dis)\
 [complete .EXE disassembly](ldBugImageBase/program_a.exe.dis)
 
