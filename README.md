@@ -312,8 +312,8 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
 ```
 ![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)
 
-Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space.
-(But this address arren)
+Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space,
+and ```__ImageBase```has to be initialized to zero.\
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
 
