@@ -66,7 +66,7 @@ http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.
 in the .OBJ module:
 
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
-[full listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
+[complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
 The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
@@ -153,7 +153,7 @@ int main(int argc, char** argv)
     return 0;
 }
 ```
-[full listing](ldBugImageBase/main.c)
+[complete listing](ldBugImageBase/main.c)
 
 Stepping through the program in the windows debuggger makes more clear, what the program is expected to
 do on machine level -- and what's going wrong in Linux:
@@ -265,7 +265,7 @@ do on machine level -- and what's going wrong in Linux:
 
 00007FF6576C10CE  ret
 ```
-[full listing](ldBugImageBase/PNG/TipoeThroughWindows.txt)
+[complete listing](ldBugImageBase/PNG/TipoeThroughWindows.txt)
 ## Linking for Linux
 
 As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
