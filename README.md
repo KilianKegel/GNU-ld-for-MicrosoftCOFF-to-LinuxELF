@@ -53,8 +53,9 @@ In the sample below the RVA (relative virtual address) of 0x140000000 is assigne
 ![file ldBugImageBase\PNG\map.png not found](ldBugImageBase/PNG/map.png)
 
 At program runtime ```__ImageBase``` points to the [`MZ-EXE-Header`](ldBugImageBase/PNG/ProcMemDumpWindows.txt).
+
 (NOTE: Due to [Address space layout randomization -- ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization)
-the is runs at different address Windows as assigned by the linker at buildtime.)
+the it runs at different address Windows as assigned by the linker at buildtime.)
 
 The references to image-relative addressed symbols 
 that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
