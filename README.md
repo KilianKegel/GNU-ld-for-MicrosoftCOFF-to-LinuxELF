@@ -66,8 +66,7 @@ http://www.m4b.io/goblin/goblin/pe/relocation/constant.IMAGE_REL_AMD64_ADDR32NB.
 in the .OBJ module:
 
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
-
-The image above is taken from [`BareCode4Windo.obj.dmp`](ldBugImageBase/BareCode4Windo.obj.dmp#L130).
+[full listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
 The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
