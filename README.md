@@ -42,6 +42,12 @@ With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
 
+## Listings
+[Disassembly of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
+[Disassembly of the .ELF executable](ldBugImageBase/program_d.elf.dis)\
+[Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
+[Section dump of the .ELF executable](ldBugImageBase/program_d.elf.dis)
+
 ## General description
 
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
