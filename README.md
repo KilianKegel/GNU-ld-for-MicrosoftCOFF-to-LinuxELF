@@ -311,8 +311,9 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
         .
 ```
 ![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.png)\
+![file ldBugImageBase\PNG\DiffELFEXE.png not found](ldBugImageBase/PNG/DiffELFEXE.pdf)\
 [complete .ELF disassembly](ldBugImageBase/program_a.elf.dis)\
-[complete .EXE disassembly](ldBugImageBase/program_a.exe.dis)\
+[complete .EXE disassembly](ldBugImageBase/program_a.exe.dis)
 
 </body></html>
 Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space,
