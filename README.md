@@ -319,44 +319,8 @@ Doing so **GNU ld**-linked programs could only run in the lower half 32Bit addre
 and ```__ImageBase```has to be initialized to zero.\
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
+![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png
 
-
-In **binutils ld** Linux linker the symbol ```__ImageBase``` at link time if required.
-
-Y
-
-
-With compiler optimization enabled the Microsoft compiler CL.EXE generates a symbol ```__ImageBase```,
-depending on code characteristics:
-(On the [`right`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/ibase0.c) side ```__ImageBase``` *is* used to access two different variables, ```wday_name_short``` and ```xday_name_short```,
-On the [`left`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/ibase1.c) it *is not* used, since there is only one single variable ```wday_name_short```)
-
-![file ldBugImageBase/CodeCharacteristics.png not found](ldBugImageBase/CodeCharacteristics.png)
-
-With compiler optimization disabled the symbol ```__ImageBase``` was not seen at all.
-
-The Microsoft linker LINK.EXE injects that symbol ```__ImageBase``` into the link stage located at image start of
-the loaded program.
-
-[`program.exe.map`](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/blob/master/ldBugImageBase/program.exe.map)
-
-```
-.
-.
-.
- 0000:00000000       __ImageBase                0000000140000000     <linker-defined>
- 0001:00000000       begin                      0000000140001000 f   ibase0.obj
- 0001:00000048       xfunc                      0000000140001048 f   icode.obj
- 0002:00000000       ??_C@_03KOEHGMDN@Sun@      0000000140002000     idata.obj
- 0002:00000004       ??_C@_03PDAGKDH@Mon@       0000000140002004     idata.obj
- 0002:00000008       ??_C@_03NAGEINEP@Tue@      0000000140002008     idata.obj
- .
- .
- .
- ```
-
- At Windows runtime ```__ImageBase``` points to the **MZ-EXE-Header**
-![file ldBugImageBase/runtimeImageBase.png not found](ldBugImageBase/runtimeImageBase.png)
 
 # STATIC ADDRESS ASSIGNMENT bug
 
