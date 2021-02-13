@@ -319,8 +319,7 @@ Doing so **GNU ld**-linked programs could only run in the lower half 32Bit addre
 and ```__ImageBase```has to be initialized to zero.\
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
 
-![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png
-
+![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
 # STATIC ADDRESS ASSIGNMENT bug
 
