@@ -315,7 +315,6 @@ were a *complete 32 bit address*. The base register (here ```RBP```) is assumed 
 [complete .ELF disassembly](ldBugImageBase/program_a.elf.dis)\
 [complete .EXE disassembly](ldBugImageBase/program_a.exe.dis)
 
-</body></html>
 Doing so **GNU ld**-linked programs could only run in the lower half 32Bit address space,
 and ```__ImageBase```has to be initialized to zero.\
 Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit address space.
