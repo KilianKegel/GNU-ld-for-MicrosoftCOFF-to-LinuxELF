@@ -39,11 +39,11 @@ To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.ba
 
 # ```__ImageBase``` bugs
 
-There were two (2) bugs found related to the Microsoft ```__ImageBase``` addressing model.
+Two (2) bugs related to the Microsoft ```__ImageBase``` addressing model were found.
 
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
-if special program characteristics were met.
+if special program characteristics are met.
 
 1. [```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-initialization-w-__imagebase)
 2. [```ADDR32NB``` OFFSET MISCALCULATION](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-offset-miscalculation)
@@ -92,7 +92,7 @@ This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
 were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.
 
-Stepping through the program in the windows debuggger makes more clear, what the program is expected to
+Stepping through the program in the windows debuggger clarifies, what the program is expected to
 do on machine level -- and what's going wrong in Linux:
 ```
 00007FF6576C1000  mov         qword ptr [rsp+8],rbx  
@@ -221,7 +221,7 @@ do on machine level -- and what's going wrong in Linux:
 [complete listing](ldBugImageBase/PNG/TipoeThroughWindows.txt)
 ## Linking for Linux
 
-As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
+As already said above, the Microsoft compiler and linker use the symbol ```__ImageBase```
 for the adressing scheme, that the linker artificially injects at link time.\
 ```__ImageBase``` is a 64Bit ```(void*)```.
 
@@ -235,11 +235,10 @@ the default **GNU ld** link script https://github.com/KilianKegel/torito-LINK/bl
 
 ### **Microsoft LINK.EXE** vs. **GNU ld**
 
-**Microsoft LINK.EXE** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
-were a *displacement* to ```__ImageStart```, while the base register is previously initialized
+**Microsoft LINK.EXE** initializes ```IMAGE_REL_AMD64_ADDR32NB``` relocations as 
+ *displacement* to ```__ImageStart```, while the base register is previously initialized
 with ```__ImageStart```.
 ```
-        .
         .
         .
     mov rcx,qword ptr [rbx+rbp+3018h]       ; RBP == __ImageBase, RBX == 0 -> index 0
@@ -248,19 +247,16 @@ with ```__ImageStart```.
     sub eax,dword ptr [rbx+rbp+3010h]
         .
         .
-        .
 ```
 **GNU ld** initialized ```IMAGE_REL_AMD64_ADDR32NB``` relocations as those
 were a *complete 32 bit address*. The base register (here ```RBP```) is assumed to be initialized previously to ZERO.
 ```
         .
         .
-        .
     mov rcx,qword ptr [rbx+rbp+403068h]     ; RBP == 0, RBX == 0 -> index 0
         .                                   ; 0x403068 load address of STRING0 in stringTable in Linux
         .
     sub eax,dword ptr [rbx+rbp+403058h]
-        .
         .
         .
 ```
