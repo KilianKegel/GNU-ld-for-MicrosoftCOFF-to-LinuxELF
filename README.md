@@ -282,9 +282,9 @@ the ```ADDR32NB``` offset calculation itself is wrong:
 ![file ldBugImageBase\PNG\DiffELFPatch.png not found](ldBugImageBase/PNG/DiffELFPatch.png)
 
 ### Explanation
-The [```.data```](program_d.elf.dis#L26)/[```.data```](program_d.exe.dis#L37) contains
+The [```.data```](ldBugImageBase/program_d.elf.dis#L26)/[```.data```](ldBugImageBase/program_d.exe.dis#L37) contains
 four (4) data structures from the sample program:
-1.  ```<deadloopvar``` at offset 0
+1.  ```deadloopvar``` at offset 0
     [see listing](ldBugImageBase/program_a.elf.dis#L14)
 
 2.  ```buffer``` at offset 4
