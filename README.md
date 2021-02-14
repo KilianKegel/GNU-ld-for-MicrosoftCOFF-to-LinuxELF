@@ -284,53 +284,17 @@ the ```ADDR32NB``` offset calculation itself is wrong:
 ### Explanation
 The [```.data```](program_d.elf.dis#L26)/[```.data```](program_d.exe.dis#L37) contains
 four (4) data structures from the sample program:
-1. ```<deadloopvar``` at offset 0
-```
-        .
-        .
-        .
-    401015:	8b 05 1d 20 00 00    	mov    eax,DWORD PTR [rip+0x201d]        # 403038 <deadloopvar>
-        .
-        .
-        .
-```
-[see listing](ldBugImageBase/program_a.elf.dis#14)
+1.  ```<deadloopvar``` at offset 0
+    [see listing](ldBugImageBase/program_a.elf.dis#L14)
 
-2. ```buffer``` at offset 4
-``` 
-        .
-        .
-        .
-  401036:	48 8d 35 ff 1f 00 00 	lea    rsi,[rip+0x1fff]        # 40303c <deadloopvar+0x4>
-        .
-        .
-        .
-```
-[see listing](ldBugImageBase/program_a.elf.dis#24)
+2.  ```buffer``` at offset 4
+    [see listing](ldBugImageBase/program_a.elf.dis#L24)
 
-3. ```sizeTable``` at offset 0x10
-``` 
-        .
-        .
-        .
-  401052:	2b 84 2b 58 30 40 00 	sub    eax,DWORD PTR [rbx+rbp*1+0x403058]
-        .
-        .
-        .
-```
-[see listing](ldBugImageBase/program_a.elf.dis#31)
+3.  ```sizeTable``` at offset 0x10
+    [see listing](ldBugImageBase/program_a.elf.dis#L31)
 
-4. ```stringTable``` at offset 0x18
-``` 
-        .
-        .
-        .
-  40103d:	48 8b 8c 2b 68 30 40 	mov    rcx,QWORD PTR [rbx+rbp*1+0x403068]
-        .
-        .
-        .
-``` 
-[see listing](ldBugImageBase/program_a.elf.dis#25)
+4.  ```stringTable``` at offset 0x18
+    [see listing](ldBugImageBase/program_a.elf.dis#L25)
 
 
  
