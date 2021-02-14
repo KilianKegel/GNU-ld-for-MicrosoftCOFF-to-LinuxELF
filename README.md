@@ -46,7 +46,7 @@ of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing 
 if special program characteristics were met.
 
 1. [```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-initialization-w-__imagebase)
-2. [```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-initialization-w-__imagebase)
+2. [```ADDR32NB``` OFFSET MISCALCULATION](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-offset-miscalculation)
 
 ### General description
 
