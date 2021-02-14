@@ -36,7 +36,7 @@ But only step (1), (2) and (16) are truly required.
 Build target is .ELF x86_64 only.
 
 To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.bat` in each folder.
-# Image-relative addressing bug
+# ```__ImageBase```-RELATIVE ADDRESSING bug 1
 
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
@@ -264,7 +264,10 @@ Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit addre
 The entire issue in one image:
 ![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
+# ```__ImageBase```-RELATIVE ADDRESSING bug 2
+
 # STATIC ADDRESS ASSIGNMENT bug
+**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
 
 Statically assigned addresses are assigned wrongly.
 This is true for *initialized* variables in the .DATA sections and
@@ -332,6 +335,7 @@ Instead in the LINK.EXE-linked .EXE version the structure elements were assigned
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
 # .BSS bug
+**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
 The .BSS bug is, that non-initialized global variables
 were accessed through a wrong address, when linked with **ld** to an .ELF image.
 
@@ -415,6 +419,7 @@ declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 an
 ```
 
 # OPTIMIZATION bug
+**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
 The optimization bug was seen when accessing structures. 
 In this specific occurence it appears with compiler optimization enabled
 and it disappears with optimization disabled, Microsoft C compiler switch `/Od`.
