@@ -87,10 +87,9 @@ in the .OBJ module:
 
 Erroneous image base inclusion into ```ADDR32NB``` offset relocation.
 
-This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)
-
-(The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
-were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.)
+This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)\
+The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
+were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.
 
 [The complete source code of the C file can be found here](ldBugImageBase/main.c)
 
@@ -279,11 +278,63 @@ The entire issue in one image:
 
 ## ```ADDR32NB``` offset miscalculation
 Beside the erroneous image base inclusion into ```ADDR32NB``` offset relocation,
-the ```ADDR32NB``` offset itself is wrong.
-
-
+the ```ADDR32NB``` offset calculation itself is wrong:
 ![file ldBugImageBase\PNG\DiffELFPatch.png not found](ldBugImageBase/PNG/DiffELFPatch.png)
 
+### Explanation
+The [```.data```](program_d.elf.dis#L26)/[```.data```](program_d.exe.dis#L37) contains
+four (4) data structures from the sample program:
+1. ```<deadloopvar``` at offset 0
+```
+        .
+        .
+        .
+    401015:	8b 05 1d 20 00 00    	mov    eax,DWORD PTR [rip+0x201d]        # 403038 <deadloopvar>
+        .
+        .
+        .
+```
+[see listing](ldBugImageBase/program_a.elf.dis#14)
+
+2. ```buffer``` at offset 4
+``` 
+        .
+        .
+        .
+  401036:	48 8d 35 ff 1f 00 00 	lea    rsi,[rip+0x1fff]        # 40303c <deadloopvar+0x4>
+        .
+        .
+        .
+```
+[see listing](ldBugImageBase/program_a.elf.dis#24)
+
+3. ```sizeTable``` at offset 0x10
+``` 
+        .
+        .
+        .
+  401052:	2b 84 2b 58 30 40 00 	sub    eax,DWORD PTR [rbx+rbp*1+0x403058]
+        .
+        .
+        .
+```
+[see listing](ldBugImageBase/program_a.elf.dis#31)
+
+4. ```stringTable``` at offset 0x18
+``` 
+        .
+        .
+        .
+  40103d:	48 8b 8c 2b 68 30 40 	mov    rcx,QWORD PTR [rbx+rbp*1+0x403068]
+        .
+        .
+        .
+``` 
+[see listing](ldBugImageBase/program_a.elf.dis#25)
+
+
+ 
+The [**GNU ld** ```.data```](program_d.elf.dis#L26)/[```RAW DATA #3```] section 
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 
