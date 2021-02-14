@@ -282,8 +282,8 @@ the ```ADDR32NB``` offset calculation itself is wrong:
 
 ### Explanation
 The [```.data```](ldBugImageBase/program_d.elf.dis#L26)/[```.data```](ldBugImageBase/program_d.exe.dis#L37) contains
-four (4) data objects from the sample program mentioned above :
-[test](buildupBUGImageBase#listings)
+four (4) data objects from the sample program mentioned above:\
+[demonstration program](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#listings)
 
 1.  ```deadloopvar``` at offset 0
     [see listing](ldBugImageBase/program_a.elf.dis#L14)
@@ -297,8 +297,11 @@ four (4) data objects from the sample program mentioned above :
 4.  ```stringTable``` at offset 0x18
     [see listing](ldBugImageBase/program_a.elf.dis#L25)
 
- 
-The [**GNU ld** ```.data```](program_d.elf.dis#L26)/[```RAW DATA #3```] section 
+Accesses to ```deadloopvar``` and ```buffer``` are ```RIP``` relative and correctly relocated by **GNU ld**.
+
+Accesses to ```sizeTable``` and ```stingTable``` are ```__ImageBase``` relative and wrongly relocated by **GNU ld**.
+
+
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 
