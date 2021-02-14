@@ -267,7 +267,7 @@ The entire issue in one image:
 # ```__ImageBase```-RELATIVE ADDRESSING bug 2
 
 # STATIC ADDRESS ASSIGNMENT bug
-**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
+## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 
 Statically assigned addresses are assigned wrongly.
 This is true for *initialized* variables in the .DATA sections and
@@ -335,7 +335,7 @@ Instead in the LINK.EXE-linked .EXE version the structure elements were assigned
 ![file ldBugStaticalAddressAssignmentLINKEXEOkay.png not found](ldBugStaticalAddressAssignmentLINKEXEOkay.png)
 
 # .BSS bug
-**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
+## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 The .BSS bug is, that non-initialized global variables
 were accessed through a wrong address, when linked with **ld** to an .ELF image.
 
@@ -419,7 +419,7 @@ declaration/definition/initialization of **`var`** for ldBugDemo0, ldBugDemo1 an
 ```
 
 # OPTIMIZATION bug
-**THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24**
+## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 The optimization bug was seen when accessing structures. 
 In this specific occurence it appears with compiler optimization enabled
 and it disappears with optimization disabled, Microsoft C compiler switch `/Od`.
