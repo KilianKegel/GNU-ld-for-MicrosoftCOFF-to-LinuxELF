@@ -1,7 +1,5 @@
 # GNU-ld-for-MicrosoftCOFF-To-LinuxELF
 
-* [History](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF#history)
-
 # Introduction
 
 While implementing support for LINUX x86_64 to the 
@@ -225,7 +223,7 @@ As already said above, the Microsoft compiler and linker uses the symbol ```__Im
 for the adressing scheme, that the linker artificially injects at link time.\
 ```__ImageBase``` is a 64Bit ```(void*)```.
 
-The **GNU ld** needs ```__ImageBase``` to get  assigned as a command line parameter:
+The **GNU ld** needs ```__ImageBase``` to get  assigned as an additional  command line parameter:
 ```
 --defsym=__ImageBase=0x400000
 ```
