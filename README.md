@@ -45,6 +45,9 @@ With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
 
+1. [```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-initialization-w-__imagebase)
+2. [```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF/tree/buildupBUGImageBase#addr32nb-initialization-w-__imagebase)
+
 ### General description
 
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
@@ -58,6 +61,8 @@ In the sample below the RVA (relative virtual address) of 0x140000000 is assigne
 At program runtime ```__ImageBase``` points to the [`MZ-EXE-Header`](ldBugImageBase/PNG/ProcMemDumpWindows.txt).\
 (NOTE: Due to [Address space layout randomization -- ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization)
 the runtime ```__ImageBase``` is relocated to a different address as assigned at link time.)
+
+* [Torito C Library](https://github.com/KilianKegel/torito-C-Library#torito-c-library)<br>
 
 The references to image-relative addressed symbols 
 that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
@@ -270,7 +275,7 @@ Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit addre
 The entire issue in one image:
 ![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
-## ```__ImageBase```-RELATIVE ADDRESSING bug 2
+## ```ADDR32NB``` offset miscalculation
 
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
