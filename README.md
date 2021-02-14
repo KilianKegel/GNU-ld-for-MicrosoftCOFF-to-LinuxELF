@@ -38,11 +38,14 @@ Build target is .ELF x86_64 only.
 To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.bat` in each folder.
 
 # ```__ImageBase``` bugs
+
+There were two bugs found related to the Microsoft ```__ImagheBase``` addressing model.
+
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
 
-## General description
+### General description
 
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
 Agner Fog describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
@@ -68,10 +71,10 @@ in the .OBJ module:
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
 [complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
-# ```__ImageBase```-RELATIVE ADDRESSING bug 1
+## ```ÀDDR32NB``` INITIALIZATION W/ ```__ImageBase```
 
 
-## Listings
+### Listings
 [Disassembly of the .EXE executable](ldBugImageBase/program_a.exe.dis)\
 [Disassembly of the .ELF executable](ldBugImageBase/program_a.elf.dis)\
 [Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
@@ -267,7 +270,7 @@ Instead **Microsoft LINK.EXE**-linked programs can run in the entire 64Bit addre
 The entire issue in one image:
 ![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
-# ```__ImageBase```-RELATIVE ADDRESSING bug 2
+## ```__ImageBase```-RELATIVE ADDRESSING bug 2
 
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
