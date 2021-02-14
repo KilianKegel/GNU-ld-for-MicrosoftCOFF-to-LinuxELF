@@ -76,14 +76,16 @@ in the .OBJ module:
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
 [complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
-## ```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```
-
-
 ### Listings
 [Disassembly of the .EXE executable](ldBugImageBase/program_a.exe.dis)\
 [Disassembly of the .ELF executable](ldBugImageBase/program_a.elf.dis)\
 [Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
-[Section dump of the .ELF executable](ldBugImageBase/program_d.elf.dis)
+[Section dump of the .ELF executable](ldBugImageBase/program_d.elf.dis)\
+[Disassembly of the binPatched .ELF executable](ldBugImageBase/programBinPatch_a.elf.dis)
+
+## ```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```
+
+Erroneous image base inclusion into ```ADDR32NB``` offset relocation.
 
 This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
@@ -276,6 +278,11 @@ The entire issue in one image:
 ![file ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NBDiffELFEXEbw.png)
 
 ## ```ADDR32NB``` offset miscalculation
+Beside the erroneous image base inclusion into ```ADDR32NB``` offset relocation,
+the ```ADDR32NB``` offset itself is wrong.
+
+
+![file ldBugImageBase\PNG\DiffELFPatch.png not found](ldBugImageBase/PNG/DiffELFPatch.png)
 
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
