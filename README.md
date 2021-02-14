@@ -298,8 +298,6 @@ Accesses to ```deadloopvar``` and ```buffer``` are ```RIP``` relative and correc
 
 Accesses to ```sizeTable``` and ```stingTable``` are ```__ImageBase``` relative and wrongly relocated by **GNU ld**.
 
-# STOP READING HERE, the stuff below is old 
-
 # STATIC ADDRESS ASSIGNMENT bug
 ## THIS BUG IS SOLVED WITH BINUTILS 2.36 FROM 2021-01-24
 
