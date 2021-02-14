@@ -62,8 +62,6 @@ At program runtime ```__ImageBase``` points to the [`MZ-EXE-Header`](ldBugImageB
 (NOTE: Due to [Address space layout randomization -- ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization)
 the runtime ```__ImageBase``` is relocated to a different address as assigned at link time.)
 
-* [Torito C Library](https://github.com/KilianKegel/torito-C-Library#torito-c-library)<br>
-
 The references to image-relative addressed symbols 
 that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
 here: https://www.amd.com/system/files/TechDocs/24592.pdf#page=50
@@ -77,6 +75,7 @@ in the .OBJ module:
 [complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
 ### Listings
+[Sourcecode of the demonstration program](ldBugImageBase/main.c)\
 [Disassembly of the .EXE executable](ldBugImageBase/program_a.exe.dis)\
 [Disassembly of the .ELF executable](ldBugImageBase/program_a.elf.dis)\
 [Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
@@ -283,7 +282,9 @@ the ```ADDR32NB``` offset calculation itself is wrong:
 
 ### Explanation
 The [```.data```](ldBugImageBase/program_d.elf.dis#L26)/[```.data```](ldBugImageBase/program_d.exe.dis#L37) contains
-four (4) data structures from the sample program:
+four (4) data objects from the sample program mentioned above :
+[test](buildupBUGImageBase#listings)
+
 1.  ```deadloopvar``` at offset 0
     [see listing](ldBugImageBase/program_a.elf.dis#L14)
 
@@ -295,7 +296,6 @@ four (4) data structures from the sample program:
 
 4.  ```stringTable``` at offset 0x18
     [see listing](ldBugImageBase/program_a.elf.dis#L25)
-
 
  
 The [**GNU ld** ```.data```](program_d.elf.dis#L26)/[```RAW DATA #3```] section 
