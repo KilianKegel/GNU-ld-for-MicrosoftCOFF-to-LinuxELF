@@ -36,17 +36,11 @@ But only step (1), (2) and (16) are truly required.
 Build target is .ELF x86_64 only.
 
 To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.bat` in each folder.
-# ```__ImageBase```-RELATIVE ADDRESSING bug 1
 
+# ```__ImageBase``` bugs
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
 if special program characteristics were met.
-
-## Listings
-[Disassembly of the .EXE executable](ldBugImageBase/program_a.exe.dis)\
-[Disassembly of the .ELF executable](ldBugImageBase/program_a.elf.dis)\
-[Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
-[Section dump of the .ELF executable](ldBugImageBase/program_d.elf.dis)
 
 ## General description
 
@@ -74,7 +68,16 @@ in the .OBJ module:
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
 [complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
-The source code below implements the test scenario: [`main.c`](ldBugImageBase/main.c)
+# ```__ImageBase```-RELATIVE ADDRESSING bug 1
+
+
+## Listings
+[Disassembly of the .EXE executable](ldBugImageBase/program_a.exe.dis)\
+[Disassembly of the .ELF executable](ldBugImageBase/program_a.elf.dis)\
+[Section dump of the .EXE executable](ldBugImageBase/program_d.exe.dis)\
+[Section dump of the .ELF executable](ldBugImageBase/program_d.elf.dis)
+
+This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)
 
 (The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
 were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.)
