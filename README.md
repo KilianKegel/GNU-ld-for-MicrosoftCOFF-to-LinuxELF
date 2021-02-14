@@ -51,7 +51,8 @@ if special program characteristics were met.
 ### General description
 
 In the **Optimization Manual** ([Optimizing subroutines in assembly language](https://www.agner.org/optimize/))
-Agner Fog describes that Microsoft-specific addressing method: https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
+Agner Fog describes that Microsoft-specific addressing method:\
+https://www.agner.org/optimize/optimizing_assembly.pdf#page=23
 
 The Microsoft Linker LINK.EXE injects the symbol ```__ImageBase``` at link time if required.
 In the sample below the RVA (relative virtual address) of 0x140000000 is assigned to ```__ImageBase```.
@@ -64,7 +65,8 @@ the runtime ```__ImageBase``` is relocated to a different address as assigned at
 
 The references to image-relative addressed symbols 
 that could be observed, use a ```[base + index*scale + disp]``` style indexed register-indirect addressing method descriped
-here: https://www.amd.com/system/files/TechDocs/24592.pdf#page=50
+here:\
+https://www.amd.com/system/files/TechDocs/24592.pdf#page=50
 
 The compiler uses the relocation type ```IMAGE_REL_AMD64_ADDR32NB```
 ([`The Common Language Infrastructure Annotated Standard`](https://books.google.de/books?id=50PhgS8vjhwC&pg=PA755&lpg=PA755&dq=REL32+ADDR32NB&source=bl&ots=v0Fv0kz3pR&sig=ACfU3U3WLFskN3kb94ktZ7ZnomEPHMf-pg&hl=en&sa=X&ved=2ahUKEwibycnIsd7uAhUDolwKHTslAaEQ6AEwB3oECAwQAg#v=onepage&q=REL32%20ADDR32NB&f=false),
@@ -84,13 +86,11 @@ in the .OBJ module:
 
 ## ```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```
 
-Erroneous image base inclusion into ```ADDR32NB``` offset relocation.
+Erroneous image base inclusion into ```ADDR32NB``` offset calculation.
 
 This source code implements the test scenario: [`main.c`](ldBugImageBase/main.c)\
 The program copies into a predefined string "1234" at centerposition the string "AB". "AB" and its length
 were accessed through arrays using indices. Doing so the Microsoft C compiler generates ```__ImageBase``` memory accesses.
-
-[The complete source code of the C file can be found here](ldBugImageBase/main.c)
 
 Stepping through the program in the windows debuggger makes more clear, what the program is expected to
 do on machine level -- and what's going wrong in Linux:
@@ -102,7 +102,7 @@ do on machine level -- and what's going wrong in Linux:
 00007FF6576C1010  sub         rsp,20h  
 
 --> BREAKORNOP
-00007FF6576C1014  nop
+00007FF6576C1014  nop       ; NOTE: NOP/INT3 is obsolete - ignore that
 
 --> while (1 == deadloopvar);
 00007FF6576C1015  mov         eax,dword ptr [7FF6576C3000h]
@@ -222,7 +222,8 @@ do on machine level -- and what's going wrong in Linux:
 ## Linking for Linux
 
 As already said above, the Microsoft compiler and linker uses the symbol ```__ImageBase```
-for the adressing scheme, that the linker artificially injects at link time.
+for the adressing scheme, that the linker artificially injects at link time.\
+```__ImageBase``` is a 64Bit ```(void*)```.
 
 The **GNU ld** needs ```__ImageBase``` to get  assigned as a command line parameter:
 ```
