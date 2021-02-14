@@ -39,7 +39,7 @@ To rebuild all the binaries, disassemblies and .OBJ file infos just invoke `m.ba
 
 # ```__ImageBase``` bugs
 
-There were two bugs found related to the Microsoft ```__ImagheBase``` addressing model.
+There were two (2) bugs found related to the Microsoft ```__ImageBase``` addressing model.
 
 With optimization setting enabled (```/O1```, ```/O2```) the code generator
 of the Microsoft C compiler *may use* the ```__ImageBase``` relative addressing method,
@@ -71,7 +71,7 @@ in the .OBJ module:
 ![file ldBugImageBase\PNG\DumpbinAllADDR32NB.png not found](ldBugImageBase/PNG/DumpbinAllADDR32NB.png)
 [complete listing](ldBugImageBase/BareCode4Windo.obj.dmp#L130)
 
-## ```ÀDDR32NB``` INITIALIZATION W/ ```__ImageBase```
+## ```ADDR32NB``` INITIALIZATION W/ ```__ImageBase```
 
 
 ### Listings
