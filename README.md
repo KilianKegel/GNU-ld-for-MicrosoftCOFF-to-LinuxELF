@@ -1,4 +1,5 @@
 # GNU-ld-for-MicrosoftCOFF-To-LinuxELF
+Link Microsoft COFF .OBJ-modules with the GNU linker *ld* to Linux .ELF executables.
 
 * [History](https://github.com/KilianKegel/GNU-ld-for-MicrosoftCOFF-to-LinuxELF#history)
 
